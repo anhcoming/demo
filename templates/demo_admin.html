@@ -397,6 +397,94 @@
         .badge-success  { background: #d1fae5; color: #065f46; }
         .badge-danger   { background: #fee2e2; color: #991b1b; }
 
+        /* ===== BOOKING SUBTABS ===== */
+        .booking-subtabs {
+            display: flex;
+            gap: 0.4rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.25rem;
+            scrollbar-width: none;
+        }
+        .booking-subtabs::-webkit-scrollbar { display: none; }
+        .booking-subtab {
+            padding: 0.55rem 1rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: transparent;
+            color: var(--text-muted);
+            border: 1.5px solid transparent;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            white-space: nowrap;
+            font-family: var(--font-sans);
+        }
+        .booking-subtab:hover {
+            color: var(--text-main);
+            background: #f8fafc;
+            border-color: var(--border-color);
+        }
+        .booking-subtab.active {
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border-color: rgba(37,99,235,0.2);
+        }
+        .booking-subtab-badge {
+            background: var(--border-color);
+            color: var(--text-sub);
+            padding: 0.1rem 0.5rem;
+            border-radius: 99px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            min-width: 20px;
+            text-align: center;
+        }
+        .booking-subtab.active .booking-subtab-badge {
+            background: var(--primary-color);
+            color: #fff;
+        }
+        .subtab-warning .booking-subtab-badge { background: #fef3c7; color: #92400e; }
+        .subtab-warning.active .booking-subtab-badge { background: #d97706; color: #fff; }
+
+        /* ===== CONFLICT WARNING ===== */
+        .conflict-warning {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #92400e;
+            background: #fef9c3;
+            border: 1px solid #fde68a;
+            border-radius: 6px;
+            padding: 0.2rem 0.55rem;
+            margin-top: 0.35rem;
+        }
+        .conflict-warning i { font-size: 0.65rem; }
+
+        /* ===== PROCESSING DRESS CARD ===== */
+        .processing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.6rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        .processing-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .processing-card-img { width: 52px; height: 68px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); flex-shrink: 0; }
+        .processing-card-body { flex: 1; min-width: 0; }
+        .processing-card-name { font-weight: 700; font-size: 0.9rem; color: var(--text-main); }
+        .processing-card-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; }
+
         /* ===== ACTION BUTTONS ===== */
         .actions-cell { display: flex; gap: 0.4rem; }
 
@@ -542,18 +630,97 @@
         }
         .booking-card-actions .btn-action span { font-size: 0.75rem; }
 
+        /* ===== DRESS CARDS (MOBILE) ===== */
+        .dress-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1rem;
+            display: flex;
+            gap: 0.85rem;
+            align-items: flex-start;
+        }
+        .dress-card-img {
+            width: 68px;
+            height: 90px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+        }
+        .dress-card-body {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .dress-card-name {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+        .dress-card-category {
+            font-size: 0.73rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .dress-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.15rem;
+        }
+        .dress-card-tag {
+            font-size: 0.67rem;
+            font-weight: 600;
+            padding: 0.2rem 0.55rem;
+            border-radius: 99px;
+            background: rgba(37,99,235,0.08);
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+        }
+        .dress-card-price {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-top: 0.2rem;
+        }
+        .dress-card-price-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .dress-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+        }
+        .dress-cards-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 0.25rem 0 0.5rem;
+        }
+
         /* ===== MOBILE OVERRIDES ===== */
         @media (max-width: 576px) {
             .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.65rem;
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
             }
             .stat-card {
-                padding: 1rem;
+                padding: 1rem 1.25rem;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
             }
-            .stat-info .value { font-size: 1.35rem; }
-            .stat-info h3 { font-size: 0.65rem; }
-            .stat-icon { width: 38px; height: 38px; font-size: 1rem; border-radius: 10px; }
+            .stat-info .value { font-size: 1.4rem; }
+            .stat-info h3 { font-size: 0.72rem; }
+            .stat-icon { width: 42px; height: 42px; font-size: 1.1rem; border-radius: 12px; flex-shrink: 0; }
 
             .top-bar {
                 flex-direction: row;
@@ -598,24 +765,30 @@
             .modal.active .modal-content {
                 transform: translateY(0);
             }
+            /* Keep the gradient on modal-header; just make it sticky */
             .modal-header {
                 position: sticky;
                 top: 0;
                 z-index: 10;
-                background: var(--card-bg);
                 border-radius: 20px 20px 0 0;
             }
-            .modal-header::before {
+            /* Bottom sheet drag handle above modal header */
+            .modal-content::before {
                 content: '';
                 display: block;
                 width: 40px; height: 4px;
-                background: var(--border-color);
+                background: rgba(255,255,255,0.35);
                 border-radius: 99px;
-                margin: 0 auto 1rem;
+                margin: 0.75rem auto 0;
+                position: relative;
+                z-index: 11;
+                background-color: var(--border-color);
+                /* Overlay the gradient header top-center */
+                pointer-events: none;
             }
 
             /* Form single column on mobile */
-            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .form-row { grid-template-columns: 1fr; gap: 0.75rem; }
 
             /* Dashboard charts stack */
             .dashboard-details { grid-template-columns: 1fr; gap: 0.75rem; }
@@ -626,19 +799,26 @@
             position: fixed;
             inset: 0;
             z-index: 2000;
-            background: rgba(15, 23, 42, 0.45);
-            backdrop-filter: blur(6px);
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(8px);
             display: none;
             justify-content: center;
             align-items: center;
             padding: 1.5rem;
             opacity: 0;
+            pointer-events: none;
             transition: var(--transition);
         }
 
         .modal.active {
             display: flex;
             opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* === BACKGROUND LOCK khi modal mở === */
+        body.modal-open {
+            overflow: hidden !important;
         }
 
         .modal-content {
@@ -658,35 +838,81 @@
         }
 
         .modal-header {
-            background: var(--bg-color);
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(135deg, #0f2d6e 0%, #1a52b0 100%);
+            padding: 1.4rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: -30px; right: -30px;
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            pointer-events: none;
+        }
+        .modal-header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px; left: 60px;
+            width: 70px; height: 70px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+            pointer-events: none;
         }
 
+        .modal-header-inner {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .modal-header-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.15);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
         .modal-header h3 {
             font-family: var(--font-heading);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            color: var(--text-main);
-            letter-spacing: -0.02em;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+        .modal-header h3 span {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.65);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-top: 0.1rem;
         }
 
         .btn-close-modal {
-            background: #f1f5f9;
-            border: 1px solid var(--border-color);
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
             font-size: 0.95rem;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.85);
             cursor: pointer;
             transition: var(--transition);
-            width: 30px; height: 30px;
+            width: 32px; height: 32px;
             border-radius: 8px;
             display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
         }
 
-        .btn-close-modal:hover { background: var(--border-color); color: var(--text-main); }
+        .btn-close-modal:hover { background: rgba(255,255,255,0.25); color: #fff; }
 
         .modal-body { padding: 1.5rem; }
 
@@ -748,6 +974,58 @@
             transform: translateY(-1px);
             box-shadow: 0 6px 20px rgba(37,99,235,0.4);
         }
+
+        /* ===== CUSTOM FILE UPLOAD ===== */
+        .file-upload-zone {
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 1.1rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #f8fafc;
+            text-align: center;
+        }
+        .file-upload-zone:hover, .file-upload-zone.dragover {
+            border-color: var(--primary-color);
+            background: rgba(37,99,235,0.04);
+        }
+        .file-upload-zone i {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            opacity: 0.7;
+        }
+        .file-upload-zone .upload-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-sub);
+        }
+        .file-upload-zone .upload-hint {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        .file-upload-zone.has-file {
+            border-color: #16a34a;
+            background: rgba(22,163,74,0.04);
+        }
+        .file-upload-zone.has-file i {
+            color: #16a34a;
+        }
+        .file-upload-preview {
+            width: 100%;
+            max-height: 100px;
+            object-fit: contain;
+            border-radius: 8px;
+            display: none;
+            margin-top: 0.25rem;
+        }
+        input[type="file"].hidden-file-input {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -805,6 +1083,14 @@
 
                 <div class="stat-card">
                     <div class="stat-info">
+                        <h3>Yêu cầu chờ duyệt</h3>
+                        <div class="value" id="stat-pending">0</div>
+                    </div>
+                    <div class="stat-icon" style="background: #fef9c3; color: #d97706;"><i class="fa-solid fa-clock"></i></div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
                         <h3>Đơn đang hoạt động</h3>
                         <div class="value" id="stat-active">0</div>
                     </div>
@@ -827,11 +1113,36 @@
                     <div class="panel-card-header">
                         <h2><i class="fa-solid fa-list-check"></i> Đơn Đặt Lịch & Lịch Trình</h2>
                     </div>
+
+                    <!-- 5 Status Subtabs -->
+                    <div class="booking-subtabs" id="booking-subtabs">
+                        <button class="booking-subtab subtab-warning active" data-tab="Chờ duyệt" onclick="switchBookingTab('Chờ duyệt', this)">
+                            <i class="fa-solid fa-clock"></i> Yêu cầu mới
+                            <span class="booking-subtab-badge" id="count-cho-duyet">0</span>
+                        </button>
+                        <button class="booking-subtab" data-tab="Đã duyệt" onclick="switchBookingTab('Đã duyệt', this)">
+                            <i class="fa-solid fa-calendar-check"></i> Lịch hẹn thử
+                            <span class="booking-subtab-badge" id="count-da-duyet">0</span>
+                        </button>
+                        <button class="booking-subtab" data-tab="Đang thuê" onclick="switchBookingTab('Đang thuê', this)">
+                            <i class="fa-solid fa-shirt"></i> Đang giữ váy
+                            <span class="booking-subtab-badge" id="count-dang-thue">0</span>
+                        </button>
+                        <button class="booking-subtab" data-tab="Giặt là" onclick="switchBookingTab('Giặt là', this)">
+                            <i class="fa-solid fa-soap"></i> Giặt là & Sửa
+                            <span class="booking-subtab-badge" id="count-giat-la">0</span>
+                        </button>
+                        <button class="booking-subtab" data-tab="Lịch sử" onclick="switchBookingTab('Lịch sử', this)">
+                            <i class="fa-solid fa-rectangle-history"></i> Lịch sử
+                            <span class="booking-subtab-badge" id="count-lich-su">0</span>
+                        </button>
+                    </div>
+
                     <!-- Desktop table -->
-                    <div class="table-container table-responsive-hide">
+                    <div class="table-container table-responsive-hide" id="bookings-table-wrap">
                         <table>
                             <thead>
-                                <tr>
+                                <tr id="bookings-table-head">
                                     <th>Khách Hàng</th>
                                     <th>Váy Thiết Kế</th>
                                     <th>Thời Gian</th>
@@ -870,7 +1181,7 @@
                     <button class="btn-view-lookbook" onclick="openAddDressModal()"><i class="fa-solid fa-plus"></i> Thêm Váy Mới</button>
                 </div>
                 
-                <div class="table-container">
+                <div class="table-container table-responsive-hide">
                     <table>
                         <thead>
                             <tr>
@@ -890,14 +1201,100 @@
                         </tbody>
                     </table>
                 </div>
+                <!-- Mobile cards -->
+                <div id="dresses-cards-mobile" class="dress-cards-mobile" style="display:none;"></div>
             </div>
         </div>
     </div>
+    <!-- MODAL: RETURN DRESS (Nhận váy trả) -->
+    <div class="modal" id="return-dress-modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);">
+                <div class="modal-header-inner">
+                    <div class="modal-header-icon"><i class="fa-solid fa-rotate-left"></i></div>
+                    <h3>Xác Nhận Nhận Váy Trả
+                        <span>Ghi nhận tình trạng váy & tiền phạt</span>
+                    </h3>
+                </div>
+                <button class="btn-close-modal" onclick="closeReturnModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div id="return-booking-info" style="background: #f8fafc; border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 1.25rem; font-size: 0.875rem; border: 1px solid var(--border-color);">
+                    Đang tải thông tin đơn...
+                </div>
+
+                <div class="form-group">
+                    <label>Tình trạng váy khi trả</label>
+                    <div style="display: flex; gap: 0.75rem; margin-top: 0.25rem;">
+                        <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.875rem;font-weight:500;padding:0.6rem 1rem;border:1.5px solid var(--border-color);border-radius:8px;flex:1;">
+                            <input type="radio" name="return-condition" value="ok" id="condition-ok" checked onchange="toggleFineInput()"> 
+                            <i class="fa-solid fa-circle-check" style="color:var(--accent-success);"></i> Bình thường
+                        </label>
+                        <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.875rem;font-weight:500;padding:0.6rem 1rem;border:1.5px solid var(--border-color);border-radius:8px;flex:1;">
+                            <input type="radio" name="return-condition" value="damaged" id="condition-damaged" onchange="toggleFineInput()">
+                            <i class="fa-solid fa-triangle-exclamation" style="color:var(--accent-danger);"></i> Hỏng hóc / bẩn
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="fine-input-group" style="display:none;">
+                    <label for="fine-amount">Tiền phạt / đền bù (VNĐ)</label>
+                    <input type="number" class="form-input" id="fine-amount" placeholder="Ví dụ: 500000" min="0" step="50000">
+                </div>
+
+                <div class="form-group">
+                    <label for="return-notes">Ghi chú thêm (tuỳ chọn)</label>
+                    <textarea class="form-input" id="return-notes" rows="2" placeholder="Mô tả tình trạng váy, lý do phạt..." style="resize:vertical;"></textarea>
+                </div>
+
+                <button type="button" class="btn-submit-booking" onclick="submitReturnDress()">
+                    <i class="fa-solid fa-check" style="margin-right:0.5rem;"></i> Xác Nhận Trả Váy
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: SWAP DRESS (Đổi váy) -->
+    <div class="modal" id="swap-dress-modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background: linear-gradient(135deg, #0369a1 0%, #075985 100%);">
+                <div class="modal-header-inner">
+                    <div class="modal-header-icon"><i class="fa-solid fa-shuffle"></i></div>
+                    <h3>Đổi Váy Cho Đơn Hàng
+                        <span>Chỉ áp dụng khi đơn đang Chờ duyệt</span>
+                    </h3>
+                </div>
+                <button class="btn-close-modal" onclick="closeSwapModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div id="swap-booking-info" style="background: #f8fafc; border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 1.25rem; font-size: 0.875rem; border: 1px solid var(--border-color);">
+                    Đang tải...
+                </div>
+
+                <div class="form-group">
+                    <label for="swap-dress-select">Chọn váy thay thế</label>
+                    <select class="form-input" id="swap-dress-select"></select>
+                </div>
+
+                <button type="button" class="btn-submit-booking" onclick="submitSwapDress()" style="background: linear-gradient(135deg, #0369a1, #075985);">
+                    <i class="fa-solid fa-shuffle" style="margin-right:0.5rem;"></i> Xác Nhận Đổi Váy
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- MODAL: THEM VAY MOI -->
     <div class="modal" id="add-dress-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Thêm Váy Thiết Kế Mới</h3>
+                <div class="modal-header-inner">
+                    <div class="modal-header-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3>Thêm Váy Thiết Kế Mới
+                        <span>Chérie Dress · Kho hàng</span>
+                    </h3>
+                </div>
                 <button class="btn-close-modal" onclick="closeAddDressModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-body">
@@ -911,9 +1308,10 @@
                         <div class="form-group">
                             <label for="dress-category">Phân Nhóm</label>
                             <select class="form-input" id="dress-category" name="category" required>
-                                <option value="Váy Cưới">Váy Cưới</option>
-                                <option value="Váy Dạ Hội">Váy Dạ Hội</option>
-                                <option value="Váy Ăn Hỏi">Váy Ăn Hỏi</option>
+                                <option value="Váy Body">Váy Body</option>
+                                <option value="Váy Xòe">Váy Xòe</option>
+                                <option value="Áo Dài">Áo Dài</option>
+                                <option value="Set">Set</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -932,8 +1330,14 @@
                             <input type="text" class="form-input" id="dress-color" name="color" placeholder="Ví dụ: Trắng Tinh Khôi" required>
                         </div>
                         <div class="form-group">
-                            <label for="dress-image">Tải Ảnh Váy (Instagram/Thiết kế)</label>
-                            <input type="file" class="form-input" id="dress-image" name="image" accept="image/*">
+                            <label>Tải Ảnh Váy (Instagram/Thiết kế)</label>
+                            <div class="file-upload-zone" id="file-upload-zone" onclick="document.getElementById('dress-image').click()">
+                                <i class="fa-solid fa-cloud-arrow-up" id="upload-icon"></i>
+                                <div class="upload-text" id="upload-text">Chọn hoặc kéo thả ảnh</div>
+                                <div class="upload-hint">JPG, PNG, WEBP — tối đa 5MB</div>
+                                <img class="file-upload-preview" id="file-upload-preview" alt="preview">
+                            </div>
+                            <input type="file" class="hidden-file-input" id="dress-image" name="image" accept="image/*">
                         </div>
                     </div>
 
@@ -973,11 +1377,13 @@
                 const openSidebar = () => {
                     sidebar.classList.add('active');
                     overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 };
 
                 const closeSidebar = () => {
                     sidebar.classList.remove('active');
                     overlay.classList.remove('active');
+                    document.body.style.overflow = '';
                 };
 
                 toggleBtn.addEventListener('click', (e) => {
@@ -1019,27 +1425,42 @@
 
         async function loadDresses() {
             const tbody = document.getElementById('dresses-table-body');
+            const mobileCards = document.getElementById('dresses-cards-mobile');
+            const isMobile = window.innerWidth <= 576;
+
+            // Show/hide desktop vs mobile
+            const tableWrap = tbody.closest('.table-container');
+            if (tableWrap) tableWrap.style.display = isMobile ? 'none' : '';
+            if (mobileCards) mobileCards.style.display = isMobile ? 'flex' : 'none';
+
             tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; padding: 2rem;"><i class="fa-solid fa-spinner fa-spin" style="font-size: 1.5rem;"></i> Đang tải danh sách kho hàng...</td></tr>';
+            if (mobileCards) mobileCards.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--text-muted)"><i class="fa-solid fa-spinner fa-spin" style="font-size:1.5rem"></i><br>Đang tải...</div>';
+
             try {
                 const response = await fetch('/api/demo/dresses');
                 dressesData = await response.json();
                 
                 tbody.innerHTML = '';
+                if (mobileCards) mobileCards.innerHTML = '';
+
                 if (dressesData.length === 0) {
                     tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; padding: 2rem; color: var(--text-muted);">Không có váy nào trong kho.</td></tr>';
+                    if (mobileCards) mobileCards.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--text-muted)">Kho hàng trống.</div>';
                     return;
                 }
 
                 dressesData.forEach(dress => {
-                    const tr = document.createElement('tr');
-                    
                     let statusBadge = '';
+                    let statusClass = '';
                     if (dress.status === 'Sẵn sàng') {
                         statusBadge = '<span class="badge badge-success">Sẵn Sàng</span>';
+                        statusClass = 'badge-success';
                     } else if (dress.status === 'Đang thuê') {
                         statusBadge = '<span class="badge badge-info">Đang Cho Thuê</span>';
+                        statusClass = 'badge-info';
                     } else {
                         statusBadge = `<span class="badge badge-warning">${dress.status}</span>`;
+                        statusClass = 'badge-warning';
                     }
 
                     let displayImg = dress.image_url;
@@ -1047,6 +1468,8 @@
                         displayImg = `/api/demo/proxy-image?url=${encodeURIComponent(displayImg)}`;
                     }
 
+                    // Desktop table row
+                    const tr = document.createElement('tr');
                     tr.innerHTML = `
                         <td><img src="${displayImg}" alt="${dress.name}" class="dress-img"></td>
                         <td style="font-weight: 600;">${dress.name}</td>
@@ -1063,6 +1486,36 @@
                         </td>
                     `;
                     tbody.appendChild(tr);
+
+                    // Mobile card
+                    if (mobileCards) {
+                        const card = document.createElement('div');
+                        card.className = 'dress-card';
+                        card.innerHTML = `
+                            <img class="dress-card-img" src="${displayImg}" alt="${dress.name}" onerror="this.src=''">
+                            <div class="dress-card-body">
+                                <div class="dress-card-name">${dress.name}</div>
+                                <div class="dress-card-category">${dress.category}</div>
+                                <div class="dress-card-tags">
+                                    <span class="dress-card-tag"><i class="fa-solid fa-ruler"></i> Size ${dress.size}</span>
+                                    <span class="dress-card-tag"><i class="fa-solid fa-palette"></i> ${dress.color}</span>
+                                </div>
+                                <div class="dress-card-footer">
+                                    <div>
+                                        <div class="dress-card-price-label">Giá thuê / ngày</div>
+                                        <div class="dress-card-price">${formatMoney(dress.price)}</div>
+                                    </div>
+                                    <div style="display:flex;align-items:center;gap:0.5rem">
+                                        <span class="badge ${statusClass}" style="font-size:0.68rem">${dress.status}</span>
+                                        <button class="btn-action" onclick="deleteDress(${dress.id})" title="Xóa" style="border-color:var(--accent-danger);color:var(--accent-danger);background:rgba(239,68,68,0.05);min-width:0;padding:0.35rem 0.5rem;font-size:0.8rem">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        mobileCards.appendChild(card);
+                    }
                 });
             } catch (error) {
                 console.error("Lỗi khi tải váy:", error);
@@ -1072,11 +1525,74 @@
 
         function openAddDressModal() {
             document.getElementById('add-dress-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            initFileUploadZone();
         }
 
         function closeAddDressModal() {
             document.getElementById('add-dress-modal').classList.remove('active');
             document.getElementById('add-dress-form').reset();
+            document.body.style.overflow = '';
+            resetFileUploadZone();
+        }
+
+        function initFileUploadZone() {
+            const input = document.getElementById('dress-image');
+            const zone  = document.getElementById('file-upload-zone');
+            if (!input || !zone || zone._initialized) return;
+            zone._initialized = true;
+
+            input.addEventListener('change', () => {
+                const file = input.files[0];
+                if (file) showFilePreview(file);
+            });
+
+            zone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                zone.classList.add('dragover');
+            });
+            zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
+            zone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                zone.classList.remove('dragover');
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    const dt = new DataTransfer();
+                    dt.items.add(file);
+                    input.files = dt.files;
+                    showFilePreview(file);
+                }
+            });
+        }
+
+        function showFilePreview(file) {
+            const zone    = document.getElementById('file-upload-zone');
+            const preview = document.getElementById('file-upload-preview');
+            const icon    = document.getElementById('upload-icon');
+            const text    = document.getElementById('upload-text');
+            const reader  = new FileReader();
+            reader.onload = (e) => {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                icon.className = 'fa-solid fa-circle-check';
+                text.textContent = file.name.length > 22 ? file.name.substring(0, 22) + '…' : file.name;
+                zone.classList.add('has-file');
+                zone.classList.remove('dragover');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function resetFileUploadZone() {
+            const zone    = document.getElementById('file-upload-zone');
+            const preview = document.getElementById('file-upload-preview');
+            const icon    = document.getElementById('upload-icon');
+            const text    = document.getElementById('upload-text');
+            if (!zone) return;
+            preview.style.display = 'none';
+            preview.src = '';
+            icon.className = 'fa-solid fa-cloud-arrow-up';
+            text.textContent = 'Chọn hoặc kéo thả ảnh';
+            zone.classList.remove('has-file', 'dragover');
         }
 
         async function submitAddDress(event) {
@@ -1130,6 +1646,7 @@
                 const data = await response.json();
                 
                 document.getElementById('stat-revenue').innerText = formatMoney(data.total_revenue);
+                document.getElementById('stat-pending').innerText = data.pending_bookings;
                 document.getElementById('stat-active').innerText = data.active_bookings;
                 document.getElementById('stat-dresses').innerText = data.available_dresses;
                 
@@ -1140,6 +1657,16 @@
         }
 
         const isMobile = () => window.innerWidth <= 576;
+
+        // Current subtab state
+        let currentBookingTab = 'Chờ duyệt';
+
+        function switchBookingTab(tab, btn) {
+            currentBookingTab = tab;
+            document.querySelectorAll('.booking-subtab').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            loadBookings();
+        }
 
         async function loadBookings() {
             const tbody = document.getElementById('bookings-table-body');
@@ -1161,30 +1688,112 @@
             try {
                 const response = await fetch('/api/demo/admin/bookings');
                 bookingsData = await response.json();
-                
+
+                // Update subtab counts
+                const counts = { 'Chờ duyệt': 0, 'Đã duyệt': 0, 'Đang thuê': 0, 'Giặt là': 0, 'Lịch sử': 0 };
+                bookingsData.forEach(b => {
+                    if (b.status === 'Chờ duyệt') counts['Chờ duyệt']++;
+                    else if (b.status === 'Đã duyệt') counts['Đã duyệt']++;
+                    else if (b.status === 'Đang thuê') counts['Đang thuê']++;
+                    else if (b.status === 'Đã trả' || b.status === 'Đã hủy') counts['Lịch sử']++;
+                });
+
+                // Count dresses in giặt là / sửa chữa from dressesData
+                if (dressesData.length > 0) {
+                    counts['Giặt là'] = dressesData.filter(d => d.status === 'Đang giặt là' || d.status === 'Đang sửa chữa').length;
+                } else {
+                    // Fetch dresses to count
+                    try {
+                        const dr = await fetch('/api/demo/dresses');
+                        const dressList = await dr.json();
+                        counts['Giặt là'] = dressList.filter(d => d.status === 'Đang giặt là' || d.status === 'Đang sửa chữa').length;
+                    } catch(e) {}
+                }
+
+                document.getElementById('count-cho-duyet').textContent = counts['Chờ duyệt'];
+                document.getElementById('count-da-duyet').textContent = counts['Đã duyệt'];
+                document.getElementById('count-dang-thue').textContent = counts['Đang thuê'];
+                document.getElementById('count-giat-la').textContent = counts['Giặt là'];
+                document.getElementById('count-lich-su').textContent = counts['Lịch sử'];
+
                 tbody.innerHTML = '';
                 cardsContainer.innerHTML = '';
 
-                if (bookingsData.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--text-muted);">Chưa có đơn đặt lịch nào trên hệ thống.</td></tr>';
-                    cardsContainer.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:2rem;">Chưa có đơn đặt lịch nào.</p>';
+                // --- TAB: Giặt là & Sửa chữa (show dresses, not bookings) ---
+                if (currentBookingTab === 'Giặt là') {
+                    let dressList = dressesData;
+                    if (!dressList.length) {
+                        const dr = await fetch('/api/demo/dresses');
+                        dressList = await dr.json();
+                        dressesData = dressList;
+                    }
+                    const processingDresses = dressList.filter(d => d.status === 'Đang giặt là' || d.status === 'Đang sửa chữa');
+                    if (processingDresses.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--text-muted);"><i class="fa-solid fa-soap"></i><br><br>Không có váy nào đang giặt/sửa.</td></tr>';
+                        cardsContainer.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:2rem;">Không có váy nào đang giặt/sửa.</p>';
+                    } else {
+                        processingDresses.forEach(dress => {
+                            let displayImg = dress.image_url;
+                            if (displayImg && displayImg.startsWith('http')) displayImg = `/api/demo/proxy-image?url=${encodeURIComponent(displayImg)}`;
+                            const statusBadge = dress.status === 'Đang giặt là'
+                                ? '<span class="badge" style="background:#dbeafe;color:#1e40af;">Đang giặt là</span>'
+                                : '<span class="badge" style="background:#fee2e2;color:#991b1b;">Đang sửa chữa</span>';
+                            const tr = document.createElement('tr');
+                            tr.innerHTML = `
+                                <td colspan="2"><div class="dress-info"><img src="${displayImg}" alt="${dress.name}" class="dress-img"><strong>${dress.name}</strong></div></td>
+                                <td>${dress.category} — Size ${dress.size}</td>
+                                <td>${statusBadge}</td>
+                                <td colspan="3">
+                                    <button class="btn-action success" onclick="markDressReady(${dress.id}, this)" title="Xác nhận sẵn sàng">
+                                        <i class="fa-solid fa-check"></i>
+                                    </button>
+                                    <span style="font-size:0.78rem;color:var(--text-muted);margin-left:0.5rem;">Xác nhận sẵn sàng</span>
+                                </td>
+                            `;
+                            tbody.appendChild(tr);
+
+                            const card = document.createElement('div');
+                            card.className = 'processing-card';
+                            card.innerHTML = `
+                                <img class="processing-card-img" src="${displayImg}" alt="${dress.name}">
+                                <div class="processing-card-body">
+                                    <div class="processing-card-name">${dress.name}</div>
+                                    <div class="processing-card-meta">${dress.category} — Size ${dress.size} — ${statusBadge}</div>
+                                </div>
+                                <button class="btn-action success" onclick="markDressReady(${dress.id}, this)" title="Sẵn sàng" style="flex-shrink:0;">
+                                    <i class="fa-solid fa-check"></i>
+                                </button>
+                            `;
+                            cardsContainer.appendChild(card);
+                        });
+                    }
                     return;
                 }
 
-                bookingsData.forEach(booking => {
-                    // Trạng thái đơn đặt
-                    let statusBadgeHtml = '';
-                    if (booking.status === 'Chờ duyệt') {
-                        statusBadgeHtml = '<span class="badge badge-warning">Chờ Duyệt</span>';
-                    } else if (booking.status === 'Đang thuê') {
-                        statusBadgeHtml = '<span class="badge badge-info">Đang Thuê</span>';
-                    } else if (booking.status === 'Đã trả') {
-                        statusBadgeHtml = '<span class="badge badge-success">Đã Trả Váy</span>';
-                    } else {
-                        statusBadgeHtml = '<span class="badge badge-danger">Quá Hạn</span>';
-                    }
+                // --- FILTER bookings by current tab ---
+                let filteredBookings;
+                if (currentBookingTab === 'Lịch sử') {
+                    filteredBookings = bookingsData.filter(b => b.status === 'Đã trả' || b.status === 'Đã hủy');
+                } else {
+                    filteredBookings = bookingsData.filter(b => b.status === currentBookingTab);
+                }
 
-                    // Trạng thái thanh toán
+                if (filteredBookings.length === 0) {
+                    const emptyMsg = 'Không có đơn nào trong danh sách này.';
+                    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--text-muted);">${emptyMsg}</td></tr>`;
+                    cardsContainer.innerHTML = `<p style="text-align:center;color:var(--text-muted);padding:2rem;">${emptyMsg}</p>`;
+                    return;
+                }
+
+                filteredBookings.forEach(booking => {
+                    let statusBadgeHtml = '';
+                    if (booking.status === 'Chờ duyệt') statusBadgeHtml = '<span class="badge badge-warning">Chờ Duyệt</span>';
+                    else if (booking.status === 'Đã duyệt') statusBadgeHtml = '<span class="badge" style="background:#e0e7ff;color:#3730a3;">Đã Duyệt</span>';
+                    else if (booking.status === 'Đang thuê') statusBadgeHtml = '<span class="badge badge-info">Đang Thuê</span>';
+                    else if (booking.status === 'Đã trả') statusBadgeHtml = '<span class="badge badge-success">Đã Trả Váy</span>';
+                    else if (booking.status === 'Đã hủy') statusBadgeHtml = '<span class="badge badge-danger">Đã Hủy</span>';
+                    else statusBadgeHtml = `<span class="badge">${booking.status}</span>`;
+
                     let paymentBadgeHtml = '';
                     if (booking.payment_status === 'Đã cọc') {
                         paymentBadgeHtml = '<span class="badge badge-warning" style="background:rgba(245,158,11,0.1);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);">Mới Cọc</span>';
@@ -1195,8 +1804,37 @@
                     }
 
                     let displayImg = booking.dress_image;
-                    if (displayImg && displayImg.startsWith('http')) {
-                        displayImg = `/api/demo/proxy-image?url=${encodeURIComponent(displayImg)}`;
+                    if (displayImg && displayImg.startsWith('http')) displayImg = `/api/demo/proxy-image?url=${encodeURIComponent(displayImg)}`;
+
+                    // Conflict warning HTML
+                    let conflictHtml = '';
+                    if (booking.conflicts && booking.conflicts.length > 0) {
+                        const names = booking.conflicts.map(c => c.name).join(', ');
+                        conflictHtml = `<div class="conflict-warning"><i class="fa-solid fa-triangle-exclamation"></i> Trùng lịch: ${names}</div>`;
+                    }
+
+                    // Appointment datetime
+                    const apptText = booking.appointment_datetime ? `<span style="font-size:0.72rem;color:var(--text-muted);"><i class="fa-regular fa-clock"></i> Hẹn: ${booking.appointment_datetime}</span>` : '';
+
+                    // Action buttons based on tab
+                    let actionsHtml = '';
+                    if (booking.status === 'Chờ duyệt') {
+                        actionsHtml = `
+                            <button class="btn-action success" onclick="updateStatus(${booking.id}, 'Đã duyệt')" title="Duyệt đơn"><i class="fa-solid fa-check"></i></button>
+                            <button class="btn-action info" onclick="openSwapModal(${booking.id})" title="Đổi váy"><i class="fa-solid fa-shuffle"></i></button>
+                            <button class="btn-action" onclick="updateStatus(${booking.id}, 'Đã hủy')" title="Hủy đơn" style="color:var(--accent-danger);border-color:rgba(239,68,68,0.3);"><i class="fa-solid fa-ban"></i></button>
+                        `;
+                    } else if (booking.status === 'Đã duyệt') {
+                        actionsHtml = `
+                            <button class="btn-action success" onclick="updateStatus(${booking.id}, 'Đang thuê')" title="Bàn giao váy"><i class="fa-solid fa-hand-holding"></i></button>
+                            <button class="btn-action" onclick="updateStatus(${booking.id}, 'Đã hủy')" title="Hủy đơn" style="color:var(--accent-danger);border-color:rgba(239,68,68,0.3);"><i class="fa-solid fa-ban"></i></button>
+                        `;
+                    } else if (booking.status === 'Đang thuê') {
+                        actionsHtml = `<button class="btn-action success" onclick="openReturnModal(${booking.id})" title="Nhận váy trả"><i class="fa-solid fa-rotate-left"></i></button>`;
+                    }
+
+                    if (booking.payment_status === 'Đã cọc' && booking.status !== 'Đã hủy') {
+                        actionsHtml += `<button class="btn-action info" onclick="updatePaymentStatus(${booking.id}, 'Đã thanh toán hết')" title="Thu nốt tiền"><i class="fa-solid fa-money-bill-wave"></i></button>`;
                     }
 
                     // ===== DESKTOP TABLE ROW =====
@@ -1206,38 +1844,40 @@
                             <div class="customer-info">
                                 <span class="customer-name">${booking.customer_name}</span>
                                 <span class="customer-phone"><i class="fa-solid fa-phone"></i> ${booking.customer_phone}</span>
+                                ${apptText}
                             </div>
                         </td>
                         <td>
                             <div class="dress-info">
                                 <img src="${displayImg}" alt="${booking.dress_name}" class="dress-img">
-                                <span style="font-weight: 500;">${booking.dress_name}</span>
+                                <div>
+                                    <span style="font-weight:500;display:block;">${booking.dress_name}</span>
+                                    ${conflictHtml}
+                                </div>
                             </div>
                         </td>
                         <td><span class="date-badge">${formatDate(booking.start_date)} &rarr; ${formatDate(booking.end_date)}</span></td>
-                        <td style="font-weight: 700; color: var(--primary-color);">${formatMoney(booking.total_price)}</td>
+                        <td style="font-weight:700;color:var(--primary-color);">${formatMoney(booking.total_price)}${booking.fine_amount ? `<br><span style="font-size:0.72rem;color:var(--accent-danger);">+${formatMoney(booking.fine_amount)} phạt</span>` : ''}</td>
                         <td>${statusBadgeHtml}</td>
                         <td>${paymentBadgeHtml}</td>
-                        <td>
-                            <div class="actions-cell">
-                                ${booking.status === 'Chờ duyệt' ? `<button class="btn-action success" onclick="updateStatus(${booking.id}, 'Đang thuê')" title="Duyệt bàn giao váy"><i class="fa-solid fa-check"></i></button>` : ''}
-                                ${booking.status === 'Đang thuê' ? `<button class="btn-action success" onclick="updateStatus(${booking.id}, 'Đã trả')" title="Xác nhận trả váy"><i class="fa-solid fa-rotate-left"></i></button>` : ''}
-                                ${booking.payment_status === 'Đã cọc' ? `<button class="btn-action info" onclick="updatePaymentStatus(${booking.id}, 'Đã thanh toán hết')" title="Thu nốt tiền thuê"><i class="fa-solid fa-money-bill-wave"></i></button>` : ''}
-                            </div>
-                        </td>
+                        <td><div class="actions-cell">${actionsHtml}</div></td>
                     `;
                     tbody.appendChild(tr);
 
                     // ===== MOBILE CARD =====
-                    const actionsBtns = [];
+                    const mobileActionsBtns = [];
                     if (booking.status === 'Chờ duyệt') {
-                        actionsBtns.push(`<button class="btn-action success" onclick="updateStatus(${booking.id}, 'Đang thuê')"><i class="fa-solid fa-check"></i><span>Duyệt váy</span></button>`);
+                        mobileActionsBtns.push(`<button class="btn-action success" onclick="updateStatus(${booking.id}, 'Đã duyệt')"><i class="fa-solid fa-check"></i><span>Duyệt</span></button>`);
+                        mobileActionsBtns.push(`<button class="btn-action info" onclick="openSwapModal(${booking.id})"><i class="fa-solid fa-shuffle"></i><span>Đổi váy</span></button>`);
+                        mobileActionsBtns.push(`<button class="btn-action" onclick="updateStatus(${booking.id}, 'Đã hủy')" style="color:var(--accent-danger);"><i class="fa-solid fa-ban"></i><span>Hủy</span></button>`);
+                    } else if (booking.status === 'Đã duyệt') {
+                        mobileActionsBtns.push(`<button class="btn-action success" onclick="updateStatus(${booking.id}, 'Đang thuê')"><i class="fa-solid fa-hand-holding"></i><span>Giao váy</span></button>`);
+                        mobileActionsBtns.push(`<button class="btn-action" onclick="updateStatus(${booking.id}, 'Đã hủy')" style="color:var(--accent-danger);"><i class="fa-solid fa-ban"></i><span>Hủy</span></button>`);
+                    } else if (booking.status === 'Đang thuê') {
+                        mobileActionsBtns.push(`<button class="btn-action success" onclick="openReturnModal(${booking.id})"><i class="fa-solid fa-rotate-left"></i><span>Nhận trả</span></button>`);
                     }
-                    if (booking.status === 'Đang thuê') {
-                        actionsBtns.push(`<button class="btn-action success" onclick="updateStatus(${booking.id}, 'Đã trả')"><i class="fa-solid fa-rotate-left"></i><span>Trả váy</span></button>`);
-                    }
-                    if (booking.payment_status === 'Đã cọc') {
-                        actionsBtns.push(`<button class="btn-action info" onclick="updatePaymentStatus(${booking.id}, 'Đã thanh toán hết')"><i class="fa-solid fa-money-bill-wave"></i><span>Thu tiền</span></button>`);
+                    if (booking.payment_status === 'Đã cọc' && booking.status !== 'Đã hủy') {
+                        mobileActionsBtns.push(`<button class="btn-action info" onclick="updatePaymentStatus(${booking.id}, 'Đã thanh toán hết')"><i class="fa-solid fa-money-bill-wave"></i><span>Thu tiền</span></button>`);
                     }
 
                     const card = document.createElement('div');
@@ -1247,9 +1887,11 @@
                             <div class="booking-card-customer">
                                 <span class="booking-card-name">${booking.customer_name}</span>
                                 <span class="booking-card-phone"><i class="fa-solid fa-phone" style="font-size:0.65rem;"></i> ${booking.customer_phone}</span>
+                                ${apptText}
                             </div>
-                            <div style="display:flex;gap:0.4rem;flex-shrink:0;">${statusBadgeHtml}${paymentBadgeHtml}</div>
+                            <div style="display:flex;gap:0.4rem;flex-shrink:0;">${statusBadgeHtml}</div>
                         </div>
+                        ${conflictHtml ? `<div style="margin-bottom:0.5rem;">${conflictHtml}</div>` : ''}
                         <div class="booking-card-dress">
                             <img src="${displayImg}" alt="${booking.dress_name}">
                             <span class="booking-card-dress-name">${booking.dress_name}</span>
@@ -1268,17 +1910,17 @@
                                 <span class="booking-card-meta-value price">${formatMoney(booking.total_price)}</span>
                             </div>
                             <div class="booking-card-meta-item">
-                                <span class="booking-card-meta-label">Số ngày</span>
-                                <span class="booking-card-meta-value">${booking.days || '-'} ngày</span>
+                                <span class="booking-card-meta-label">Thanh toán</span>
+                                <span class="booking-card-meta-value">${paymentBadgeHtml}</span>
                             </div>
                         </div>
-                        ${actionsBtns.length > 0 ? `<div class="booking-card-actions">${actionsBtns.join('')}</div>` : ''}
+                        ${mobileActionsBtns.length > 0 ? `<div class="booking-card-actions">${mobileActionsBtns.join('')}</div>` : ''}
                     `;
                     cardsContainer.appendChild(card);
                 });
             } catch (error) {
                 console.error("Lỗi khi tải danh sách đặt lịch:", error);
-                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--accent-danger);">Lỗi kết nối máy chủ.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--accent-danger);">Lỗi kết nối máy chủ.</td></tr>';
                 cardsContainer.innerHTML = '<p style="text-align:center;color:var(--accent-danger);padding:2rem;">Lỗi kết nối máy chủ.</p>';
             }
         }
@@ -1301,6 +1943,7 @@
                 if (data.success) {
                     loadStats();
                     loadBookings();
+                    loadDresses();
                 } else {
                     alert(data.message);
                 }
@@ -1325,6 +1968,143 @@
                 }
             } catch (error) {
                 console.error("Lỗi khi cập nhật trạng thái thanh toán:", error);
+            }
+        }
+
+        // ===== RETURN MODAL =====
+        let currentReturnBookingId = null;
+
+        function openReturnModal(bookingId) {
+            currentReturnBookingId = bookingId;
+            const booking = bookingsData.find(b => b.id === bookingId);
+            const infoEl = document.getElementById('return-booking-info');
+            if (booking) {
+                infoEl.innerHTML = `<strong>${booking.customer_name}</strong> — ${booking.dress_name}<br><span style="color:var(--text-muted);font-size:0.8rem;">${formatDate(booking.start_date)} → ${formatDate(booking.end_date)}</span>`;
+            }
+            document.querySelectorAll('input[name="return-condition"]').forEach(r => r.checked = r.value === 'ok');
+            document.getElementById('fine-input-group').style.display = 'none';
+            document.getElementById('fine-amount').value = '';
+            document.getElementById('return-notes').value = '';
+            document.getElementById('return-dress-modal').classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeReturnModal() {
+            document.getElementById('return-dress-modal').classList.remove('active');
+            document.body.classList.remove('modal-open');
+            currentReturnBookingId = null;
+        }
+
+        function toggleFineInput() {
+            const damaged = document.getElementById('condition-damaged').checked;
+            document.getElementById('fine-input-group').style.display = damaged ? 'block' : 'none';
+        }
+
+        async function submitReturnDress() {
+            if (!currentReturnBookingId) return;
+            const condition = document.querySelector('input[name="return-condition"]:checked').value;
+            const fine_amount = parseInt(document.getElementById('fine-amount').value || '0');
+            const notes = document.getElementById('return-notes').value;
+
+            try {
+                const response = await fetch(`/api/demo/admin/bookings/${currentReturnBookingId}/dress-return`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ condition, fine_amount, notes })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    closeReturnModal();
+                    // Switch to Giặt là tab to see the dress
+                    currentBookingTab = 'Giặt là';
+                    document.querySelectorAll('.booking-subtab').forEach(b => {
+                        b.classList.toggle('active', b.dataset.tab === 'Giặt là');
+                    });
+                    loadStats();
+                    loadBookings();
+                    loadDresses();
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Lỗi trả váy:', error);
+            }
+        }
+
+        // ===== SWAP DRESS MODAL =====
+        let currentSwapBookingId = null;
+
+        function openSwapModal(bookingId) {
+            currentSwapBookingId = bookingId;
+            const booking = bookingsData.find(b => b.id === bookingId);
+            const infoEl = document.getElementById('swap-booking-info');
+            if (booking) {
+                infoEl.innerHTML = `<strong>${booking.customer_name}</strong> — Hiện: ${booking.dress_name}`;
+            }
+
+            // Populate dress select from dressesData (all dresses)
+            const select = document.getElementById('swap-dress-select');
+            select.innerHTML = '';
+            const pool = dressesData.length > 0 ? dressesData : [];
+            pool.forEach(d => {
+                const opt = document.createElement('option');
+                opt.value = d.id;
+                opt.textContent = `${d.name} — Size ${d.size} (${d.color}) — ${d.status}`;
+                if (d.id === booking?.dress_id) opt.selected = true;
+                select.appendChild(opt);
+            });
+
+            document.getElementById('swap-dress-modal').classList.add('active');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeSwapModal() {
+            document.getElementById('swap-dress-modal').classList.remove('active');
+            document.body.classList.remove('modal-open');
+            currentSwapBookingId = null;
+        }
+
+        async function submitSwapDress() {
+            if (!currentSwapBookingId) return;
+            const newDressId = parseInt(document.getElementById('swap-dress-select').value);
+            try {
+                const response = await fetch(`/api/demo/admin/bookings/${currentSwapBookingId}/dress`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ dress_id: newDressId })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    closeSwapModal();
+                    loadBookings();
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Lỗi đổi váy:', error);
+            }
+        }
+
+        // ===== MARK DRESS READY =====
+        async function markDressReady(dressId, btn) {
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+            try {
+                const response = await fetch(`/api/demo/admin/dresses/${dressId}/ready`, { method: 'POST' });
+                const data = await response.json();
+                if (data.success) {
+                    loadStats();
+                    loadBookings();
+                    loadDresses();
+                } else {
+                    alert(data.message);
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+                }
+            } catch (error) {
+                console.error('Lỗi xác nhận sẵn sàng:', error);
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-check"></i>';
             }
         }
 

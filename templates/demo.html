@@ -45,13 +45,14 @@
 
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
         body {
             font-family: var(--font-ui);
             background: var(--surface-2);
             color: var(--text-1);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
             -webkit-font-smoothing: antialiased;
         }
         a { color: inherit; text-decoration: none; }
@@ -71,10 +72,23 @@
             justify-content: center;
             padding: 1.5rem;
             opacity: 0;
+            pointer-events: none;
             transition: opacity 0.4s ease;
         }
-        .popup-overlay.show { opacity: 1; }
+        .popup-overlay.show { opacity: 1; pointer-events: auto; }
         .popup-overlay.hide { opacity: 0; pointer-events: none; }
+
+        /* === BACKGROUND LOCK khi mở bất kỳ popup/modal nào === */
+        body.modal-open {
+            overflow: hidden !important;
+            /* Giữ position để phần scroll không nhảy */
+        }
+        /* Ẩn floating buttons khi modal đang mở để tránh click lầm */
+        body.modal-open .floating-contact,
+        body.modal-open .scroll-top-btn {
+            pointer-events: none !important;
+            opacity: 0 !important;
+        }
 
         .popup-box {
             position: relative;
@@ -1864,13 +1878,15 @@
             .shop-sidebar {
                 position: fixed;
                 top: 0; left: -320px;
-                width: 300px;
+                width: min(300px, 85vw);
+                max-width: 85vw;
                 height: 100%;
                 z-index: 2001;
                 background: var(--surface);
                 box-shadow: 20px 0 60px rgba(10,32,64,0.15);
                 padding: 1.5rem;
                 overflow-y: auto;
+                overflow-x: hidden;
                 transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             }
             .shop-sidebar.active {
@@ -1913,9 +1929,14 @@
 
             /* Optimize Product Card Typography on Mobile */
             .product-brand { font-size: 0.65rem; }
-            .product-name { font-size: 0.8rem; }
-            .price-amount { font-size: 0.9rem; }
+            .product-name { font-size: 0.82rem; }
+            .price-amount { font-size: 0.92rem; }
             .price-note { font-size: 0.65rem; }
+            .product-info { padding: 0.75rem 0.9rem 0.9rem; }
+            /* Hide category dot on mobile – redundant with dress names */
+            .category-dot { display: none; }
+            /* Ensure booking button icon centres */
+            .btn-book-now { display: inline-flex; gap: 0; }
 
             /* Floating Contact – Left side on mobile */
             .floating-contact {
@@ -2286,18 +2307,37 @@
             background-color: #fef3c7;
             color: #d97706;
         }
-        .status-dang-thue {
+        .status-da-duyet {
             background-color: #dbeafe;
             color: #2563eb;
+        }
+        .status-dang-thue {
+            background-color: #ede9fe;
+            color: #7c3aed;
         }
         .status-da-tra {
             background-color: #dcfce7;
             color: #16a34a;
         }
+        .status-da-huy {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
         .status-other {
             background-color: #f1f5f9;
             color: #475569;
         }
+        .pay-badge {
+            align-self: flex-start;
+            padding: 0.2rem 0.45rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            margin-top: 0.2rem;
+        }
+        .pay-chua-coc { background: #f1f5f9; color: #64748b; }
+        .pay-da-coc { background: #fef9c3; color: #92400e; }
+        .pay-da-tt { background: #dcfce7; color: #15803d; }
 
         /* Gallery Modal Styles */
         .gallery-modal {
@@ -2373,11 +2413,51 @@
             height: 100%;
         }
         @media (max-width: 768px) {
+            /* Gallery modal – full-screen sheet on mobile */
+            .gallery-modal {
+                align-items: flex-end;
+                padding: 0;
+            }
+            .gallery-modal-content {
+                width: 100%;
+                max-width: 100%;
+                border-radius: 20px 20px 0 0;
+                max-height: 92vh;
+                overflow-y: auto;
+                overflow-x: hidden;
+                display: block !important;
+            }
+            .gallery-modal.active .gallery-modal-content {
+                transform: none;
+            }
             .gallery-modal-body {
                 grid-template-columns: 1fr;
-                overflow-y: auto;
-                max-height: 90vh;
             }
+            .gallery-images-section {
+                border-right: none;
+                border-bottom: 1px solid #f1f5f9;
+                padding: 1.25rem;
+            }
+            .gallery-main-wrap {
+                aspect-ratio: 4/3;
+            }
+            .gallery-details-section {
+                padding: 1.25rem !important;
+            }
+            .gallery-specs-grid {
+                gap: 0.5rem;
+                margin-bottom: 1.25rem;
+            }
+            .spec-item {
+                padding: 0.5rem;
+                gap: 0.35rem;
+            }
+            .spec-item i { font-size: 0.9rem; }
+            .spec-item .label { font-size: 0.6rem; }
+            .spec-item strong { font-size: 0.72rem; }
+            #gallery-dress-name { font-size: 1.4rem; margin-bottom: 0.85rem; }
+            .gallery-detail-price-box { padding: 0.9rem; gap: 0.5rem; margin-bottom: 1rem; }
+            .gallery-detail-price-box .price-item .value { font-size: 1.15rem; }
         }
         
         .gallery-images-section {
@@ -2957,6 +3037,17 @@
                         <input type="text" class="form-input" id="end-date" onchange="calcPrice()" placeholder="Chọn ngày giờ trả" required>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="appointment-dt">Giờ hẹn thử váy <span style="font-weight:400;color:var(--text-muted);font-size:0.8rem;">(tuỳ chọn)</span></label>
+                    <input type="text" class="form-input" id="appointment-dt" placeholder="VD: 14:00 ngày 20/07 — để cửa hàng gọi xác nhận">
+                </div>
+                <div class="form-group">
+                    <label for="customer-note">Ghi chú thêm <span style="font-weight:400;color:var(--text-muted);font-size:0.8rem;">(tuỳ chọn)</span></label>
+                    <textarea class="form-input" id="customer-note" rows="2" placeholder="Size muốn chỉnh, yêu cầu đặc biệt..." style="resize:vertical;"></textarea>
+                </div>
+                <div id="availability-warning" style="display:none;background:#fef9c3;border:1px solid #fde68a;border-radius:8px;padding:0.7rem 1rem;margin-bottom:0.75rem;font-size:0.82rem;color:#92400e;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> <strong>Lưu ý:</strong> Váy này đang có lịch trong một số ngày. Bạn vẫn có thể đặt nhưng cần chờ Admin xác nhận.
+                </div>
                 <div class="booking-summary">
                     <div class="summary-row"><span>Giá thuê / ngày:</span><span id="sum-price-day">—</span></div>
                     <div class="summary-row"><span>Số ngày thuê:</span><span id="sum-days">0 ngày</span></div>
@@ -3189,6 +3280,7 @@
             p.classList.remove('show');
             p.classList.add('hide');
             setTimeout(() => p.style.display = 'none', 400);
+            document.body.classList.remove('modal-open');
         }
         // Close on overlay click
         document.getElementById('grand-popup').addEventListener('click', function(e) {
@@ -3197,6 +3289,7 @@
         // Show popup after 0.8s
         setTimeout(() => {
             document.getElementById('grand-popup').classList.add('show');
+            document.body.classList.add('modal-open');
         }, 800);
 
         /* ── Header scroll effect + Scroll-to-top ── */
@@ -3340,11 +3433,13 @@
             const overlay = document.getElementById('sidebar-overlay');
             const active = sidebar.classList.toggle('active');
             overlay.classList.toggle('active', active);
+            document.body.style.overflow = active ? 'hidden' : '';
         }
 
         function closeMobileSidebar() {
             document.getElementById('shop-sidebar').classList.remove('active');
             document.getElementById('sidebar-overlay').classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         function filterCat(cat) {
@@ -3519,7 +3614,7 @@
         }
 
         /* ── Drawer ── */
-        function openDrawer(id) {
+        async function openDrawer(id) {
             selectedDress = allDresses.find(d => d.id === id);
             if (!selectedDress) return;
             document.getElementById('drawer-title').textContent = `Đặt lịch: ${selectedDress.name}`;
@@ -3530,13 +3625,37 @@
             if (endPicker) endPicker.clear();
             document.getElementById('sum-days').textContent = '0 ngày';
             document.getElementById('sum-total').textContent = '—';
+            document.getElementById('appointment-dt').value = '';
+            document.getElementById('customer-note').value = '';
+            document.getElementById('availability-warning').style.display = 'none';
+
+            // Fetch blocked dates from availability API
+            try {
+                const res = await fetch(`/api/demo/dresses/${id}/availability`);
+                const blocked = await res.json();
+
+                const disabledRanges = blocked.map(b => ({ from: b.from, to: b.to }));
+
+                if (disabledRanges.length > 0) {
+                    document.getElementById('availability-warning').style.display = 'block';
+                }
+
+                // Update flatpickr disable ranges
+                if (startPicker) startPicker.set('disable', disabledRanges);
+                if (endPicker) endPicker.set('disable', disabledRanges);
+            } catch (e) {
+                // silently ignore
+            }
+
             document.getElementById('booking-drawer').classList.add('active');
             document.getElementById('drawer-overlay').classList.add('active');
+            document.body.classList.add('modal-open');
             document.body.style.overflow = 'hidden';
         }
         function closeDrawer() {
             document.getElementById('booking-drawer').classList.remove('active');
             document.getElementById('drawer-overlay').classList.remove('active');
+            document.body.classList.remove('modal-open');
             document.body.style.overflow = '';
         }
         function calcPrice() {
@@ -3557,14 +3676,23 @@
                 customer_name: document.getElementById('customer-name').value.trim(),
                 customer_phone: document.getElementById('customer-phone').value.trim(),
                 start_date: s, end_date: en,
-                total_price: days * selectedDress.price
+                total_price: days * selectedDress.price,
+                appointment_datetime: document.getElementById('appointment-dt').value.trim() || null,
+                customer_note: document.getElementById('customer-note').value.trim() || null
             };
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi...';
             try {
                 const res = await fetch('/api/demo/bookings', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                 const data = await res.json();
                 showToast(data.message, data.success ? 'success' : 'error');
                 if (data.success) closeDrawer();
             } catch { showToast('Lỗi kết nối. Vui lòng thử lại.', 'error'); }
+            finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-calendar-check"></i> Xác Nhận Đặt Lịch';
+            }
         }
 
         /* ── Toast ── */
@@ -3677,6 +3805,8 @@
             const modal = document.getElementById('lookup-modal');
             modal.classList.add('active');
             modal.style.display = 'flex';
+            document.body.classList.add('modal-open');
+            document.body.style.overflow = 'hidden';
             document.getElementById('lookup-phone-input').focus();
         }
         
@@ -3686,6 +3816,8 @@
             setTimeout(() => {
                 modal.style.display = 'none';
             }, 300);
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
         }
         
         function onLookupPhoneInput() {
@@ -3718,9 +3850,16 @@
                 resultsContainer.innerHTML = bookings.map(b => {
                     let statusClass = 'status-other';
                     if (b.status === 'Chờ duyệt') statusClass = 'status-cho-duyet';
+                    else if (b.status === 'Đã duyệt') statusClass = 'status-da-duyet';
                     else if (b.status === 'Đang thuê') statusClass = 'status-dang-thue';
                     else if (b.status === 'Đã trả') statusClass = 'status-da-tra';
-                    
+                    else if (b.status === 'Đã hủy') statusClass = 'status-da-huy';
+
+                    let payClass = 'pay-chua-coc';
+                    let payLabel = '⏳ Chưa cọc';
+                    if (b.payment_status === 'Đã cọc') { payClass = 'pay-da-coc'; payLabel = '💰 Đã cọc'; }
+                    else if (b.payment_status === 'Đã thanh toán hết') { payClass = 'pay-da-tt'; payLabel = '✅ Đã thanh toán'; }
+
                     let image_url = b.dress_image;
                     if (image_url.startsWith('http')) {
                         image_url = `/api/demo/proxy-image?url=${encodeURIComponent(image_url)}`;
@@ -3735,7 +3874,10 @@
                                 <div class="lookup-item-name">${b.dress_name}</div>
                                 <div class="lookup-item-date"><i class="fa-regular fa-calendar"></i> Từ ${b.start_date} đến ${b.end_date}</div>
                                 <div class="lookup-item-price">Tổng: ${fmtPrice}</div>
-                                <span class="lookup-item-status-badge ${statusClass}">${b.status} (${b.payment_status})</span>
+                                <div style="display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.25rem;">
+                                    <span class="lookup-item-status-badge ${statusClass}">${b.status}</span>
+                                    <span class="pay-badge ${payClass}">${payLabel}</span>
+                                </div>
                             </div>
                         </div>
                     `;
@@ -3824,6 +3966,7 @@
             const modal = document.getElementById('gallery-modal');
             modal.classList.add('active');
             modal.style.display = 'flex';
+            document.body.classList.add('modal-open');
             document.body.style.overflow = 'hidden';
         }
 
@@ -3839,6 +3982,7 @@
             setTimeout(() => {
                 modal.style.display = 'none';
             }, 300);
+            document.body.classList.remove('modal-open');
             document.body.style.overflow = '';
         }
 
