@@ -1,0 +1,3857 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chérie Dress - Cho thuê váy thiết kế</title>
+    <meta name="description" content="Chérie Dress – cho thuê váy cưới, váy dạ hội thiết kế cao cấp tại Hà Nội. Đặt lịch trực tuyến nhanh chóng, tiện lợi.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Flatpickr Datepicker CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+
+    <style>
+        :root {
+            /* Tara Store Elegant Blue Theme */
+            --primary: #0f52ba;
+            --primary-2: #0d47a1;
+            --primary-3: #0a3578;
+            --primary-glow: rgba(15,82,186,0.15);
+            --accent: #000000;
+            --surface: #ffffff;
+            --surface-2: #ffffff;
+            --surface-3: #fafafa;
+            --border: rgba(15,82,186,0.1);
+            --border-strong: rgba(15,82,186,0.2);
+            --text-1: #000000;
+            --text-2: #333333;
+            --text-3: #777777;
+            --font-ui: 'Quicksand', sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --font-script: 'Dancing Script', cursive;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --shadow-xs: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-sm: 0 4px 12px rgba(15,82,186,0.05);
+            --shadow-md: 0 8px 24px rgba(15,82,186,0.08);
+            --shadow-lg: 0 16px 48px rgba(15,82,186,0.1);
+            --transition: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-ui);
+            background: var(--surface-2);
+            color: var(--text-1);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+        ul { list-style: none; }
+        button { cursor: pointer; font-family: inherit; }
+
+        /* ===================== GRAND OPENING POPUP ===================== */
+        .popup-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: rgba(10, 25, 60, 0.6);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .popup-overlay.show { opacity: 1; }
+        .popup-overlay.hide { opacity: 0; pointer-events: none; }
+
+        .popup-box {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            background: linear-gradient(160deg, #e8f4ff 0%, #ffffff 45%, #d6ecff 100%);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 32px 80px rgba(10,50,120,0.28), 0 0 0 1px rgba(255,255,255,0.8) inset;
+            transform: scale(0.88) translateY(20px);
+            transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease;
+            opacity: 0;
+        }
+        .popup-overlay.show .popup-box { transform: scale(1) translateY(0); opacity: 1; }
+
+        /* Decorative circles */
+        .popup-box::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -60px;
+            width: 280px; height: 280px;
+            background: radial-gradient(circle, rgba(56,189,248,0.22) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .popup-box::after {
+            content: '';
+            position: absolute;
+            bottom: -60px; left: -40px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(26,95,166,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Close button */
+        .popup-close {
+            position: absolute;
+            top: 14px; right: 14px;
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: rgba(10,50,120,0.1);
+            border: 1.5px solid rgba(10,50,120,0.15);
+            color: #1a3d8c;
+            font-size: 1rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 0.2s;
+        }
+        .popup-close:hover { background: #1a5fa6; color: #fff; border-color: #1a5fa6; transform: rotate(90deg); }
+
+        /* Logo area */
+        .popup-logo {
+            text-align: center;
+            padding: 2rem 2rem 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .popup-logo-text {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #1a3d8c;
+            opacity: 0.6;
+        }
+
+        /* Grand Opening title */
+        .popup-title-wrap {
+            text-align: center;
+            padding: 0.5rem 2rem 0.25rem;
+            position: relative;
+            z-index: 1;
+        }
+        .popup-grand {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #0f2d6e;
+            line-height: 1;
+            display: block;
+            letter-spacing: -0.02em;
+        }
+        .popup-opening {
+            font-family: var(--font-ui);
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #1a3d8c;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            display: block;
+            margin-top: -0.3rem;
+        }
+
+        /* Sparkles */
+        .sparkle {
+            display: inline-block;
+            color: #38bdf8;
+            font-size: 1rem;
+            animation: twinkle 2s ease-in-out infinite alternate;
+        }
+        .sparkle:nth-child(2) { animation-delay: 0.5s; font-size: 0.7rem; }
+        .sparkle:nth-child(3) { animation-delay: 1s; }
+        @keyframes twinkle { from { opacity: 0.4; transform: scale(0.8); } to { opacity: 1; transform: scale(1.2); } }
+
+        /* Price tag */
+        .popup-price-tag {
+            margin: 1.2rem 2rem 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(235,248,255,0.9));
+            border: 2px solid rgba(56,189,248,0.5);
+            border-radius: 99px;
+            padding: 0.65rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1a3d8c;
+            letter-spacing: 0.04em;
+            backdrop-filter: blur(8px);
+            position: relative; z-index: 1;
+        }
+        .popup-price-tag strong { font-size: 1.15rem; color: #0f2d6e; }
+
+        /* Discount box */
+        .popup-discount {
+            margin: 1rem 2rem;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #991b1b 100%);
+            border-radius: 20px;
+            padding: 1.3rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative; z-index: 1;
+            box-shadow: 0 8px 24px rgba(220,38,38,0.35);
+            overflow: hidden;
+        }
+        .popup-discount::before {
+            content: '';
+            position: absolute;
+            top: -30px; right: -20px;
+            width: 120px; height: 120px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+        .popup-bow {
+            font-size: 2.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        .popup-discount-text { color: #fff; }
+        .popup-discount-text p {
+            font-size: 0.88rem;
+            font-weight: 700;
+            line-height: 1.3;
+            opacity: 0.95;
+        }
+        .popup-percent {
+            margin-left: auto;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+        }
+        .popup-percent span { font-size: 1.6rem; }
+
+        /* Date badge */
+        .popup-date {
+            margin: 0.75rem 2rem 1.5rem;
+            background: rgba(255,255,255,0.7);
+            border: 1.5px solid rgba(56,189,248,0.4);
+            border-radius: 99px;
+            padding: 0.55rem 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1a3d8c;
+            backdrop-filter: blur(8px);
+            position: relative; z-index: 1;
+        }
+        .popup-date i { color: #38bdf8; }
+
+        /* CTA Button */
+        .popup-cta {
+            display: block;
+            margin: 0 2rem 2rem;
+            background: linear-gradient(135deg, #1a5fa6 0%, #0e4a8c 100%);
+            color: #fff;
+            text-align: center;
+            padding: 0.9rem 1rem;
+            border-radius: 99px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(26,95,166,0.35);
+            position: relative; z-index: 1;
+            border: none;
+            cursor: pointer;
+            width: calc(100% - 4rem);
+        }
+        .popup-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(26,95,166,0.45); }
+
+        .popup-skip {
+            display: block;
+            text-align: center;
+            font-size: 0.76rem;
+            color: #7a92aa;
+            padding-bottom: 1.2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            position: relative; z-index: 1;
+            background: none;
+            border: none;
+            width: 100%;
+        }
+        .popup-skip:hover { color: #1a5fa6; }
+
+        /* ===================== SCROLLBAR ===================== */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 99px; }
+
+        /* ===================== HEADER ===================== */
+        #header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            width: 100%;
+            max-width: 100%;
+            z-index: 1000;
+            background: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s;
+        }
+        #header.scrolled {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 2.5rem;
+            max-width: 1440px;
+            margin: 0 auto;
+            gap: 1.5rem;
+        }
+
+        /* Logo */
+        .logo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+        .logo-text {
+            font-family: var(--font-ui);
+            font-weight: 700;
+            font-size: 1.45rem;
+            color: #000;
+            line-height: 0.95;
+            letter-spacing: 0.08em;
+        }
+        .logo-store {
+            font-family: var(--font-script);
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: -1px;
+            margin-left: 0.5rem;
+            line-height: 1;
+            font-weight: 500;
+            text-transform: lowercase;
+        }
+
+        /* Nav */
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            flex: 1;
+            justify-content: center;
+        }
+        .header-nav a {
+            padding: 0.5rem 0.85rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #111;
+            text-decoration: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+            letter-spacing: 0.04em;
+        }
+        .header-nav a:hover {
+            color: var(--primary);
+        }
+        .header-nav a.active {
+            color: var(--primary);
+        }
+        .mobile-admin-link { display: none !important; }
+
+        /* Header Actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-shrink: 0;
+        }
+        .icon-btn-text {
+            color: #111;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+        .icon-btn-text:hover {
+            color: var(--primary);
+        }
+        .header-action-link {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #111;
+            text-decoration: none;
+            transition: color 0.2s;
+            letter-spacing: 0.04em;
+        }
+        .header-action-link:hover {
+            color: var(--primary);
+        }
+        .header-cart-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #111;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .header-cart-btn:hover {
+            color: var(--primary);
+        }
+        .header-cart-btn i {
+            font-size: 0.95rem;
+            margin-left: 2px;
+        }
+
+        /* Page offset for fixed header */
+        body { padding-top: 72px; }
+
+        /* ===================== BANNER SLIDER ===================== */
+        .banner-slider-section {
+            position: relative;
+            width: 100%;
+            height: 580px;
+            overflow: hidden;
+            background: #000;
+        }
+        .banner-slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .banner-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .banner-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        .banner-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
+            z-index: 2;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+        }
+        .slider-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+        .prev-btn { left: 2.5rem; }
+        .next-btn { right: 2.5rem; }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+            z-index: 2;
+        }
+        .dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.45);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .dot.active {
+            background: var(--primary);
+            width: 25px;
+            border-radius: 5px;
+        }
+
+        /* ===================== FEATURES STRIP ===================== */
+        /* ===== FEATURES STRIP – LUXURY BRAND STYLE ===== */
+        .features-strip {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .features-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 0.65rem;
+            padding: 2rem 1.25rem;
+            border-right: 1px solid var(--border);
+            position: relative;
+            cursor: default;
+            transition: background 0.3s ease;
+            overflow: hidden;
+        }
+        .feature-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 40px; height: 2px;
+            background: var(--primary);
+            border-radius: 99px;
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+        }
+        .feature-item:hover::after { transform: translateX(-50%) scaleX(1); }
+        .feature-item:hover { background: rgba(var(--primary-rgb, 212,160,168), 0.04); }
+        .feature-item:last-child { border-right: none; }
+        .feat-icon-wrap {
+            width: 52px; height: 52px;
+            border: 1.5px solid var(--border);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: 1.15rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        .feature-item:hover .feat-icon-wrap {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: #fff;
+            transform: scale(1.08);
+        }
+        .feat-text-block { display: flex; flex-direction: column; gap: 0.25rem; }
+        .feat-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-1);
+        }
+        .feat-desc { font-size: 0.72rem; color: var(--text-3); font-weight: 400; line-height: 1.4; }
+
+        /* ===================== SECTION COMMON ===================== */
+        .section-wrap { max-width: 1320px; margin: 0 auto; padding: 4rem 2rem; }
+
+        .section-label {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.72rem; font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.75rem;
+        }
+        .section-label::before {
+            content: '';
+            width: 20px; height: 2px;
+            background: var(--primary);
+            border-radius: 99px;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 700;
+            color: var(--text-1);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .section-title em { font-style: italic; color: var(--primary); }
+        .section-sub { font-size: 0.95rem; color: var(--text-2); max-width: 520px; }
+        .section-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2.5rem;
+            gap: 1.5rem;
+        }
+        .link-arrow {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.82rem; font-weight: 700;
+            color: var(--primary);
+            transition: gap 0.2s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .link-arrow:hover { gap: 0.7rem; }
+
+        /* ===================== TARA CATEGORIES SECTION ===================== */
+        .tara-categories-section {
+            background: var(--surface-2);
+            padding: 4.5rem 0 3.5rem;
+            text-align: center;
+        }
+        .tara-section-title {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .tara-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; left: 50%;
+            transform: translateX(-50%);
+            width: 60px; height: 3px;
+            background: var(--primary);
+            border-radius: 99px;
+        }
+        .tara-cat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .tara-cat-card {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            cursor: pointer;
+            transition: all 0.4s var(--transition);
+            position: relative;
+        }
+        .tara-cat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15,82,186,0.12);
+        }
+        .tara-cat-img-wrap {
+            position: relative;
+            width: 100%;
+            padding-top: 130%;
+            overflow: hidden;
+        }
+        .tara-cat-img-wrap img {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--transition);
+        }
+        .tara-cat-card:hover .tara-cat-img-wrap img {
+            transform: scale(1.08);
+        }
+        .tara-cat-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 60%);
+            opacity: 0.85;
+        }
+        .tara-cat-info {
+            position: absolute;
+            bottom: 1.5rem; left: 0; right: 0;
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+        }
+        .tara-cat-info h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .tara-cat-count {
+            font-size: 0.82rem;
+            font-weight: 600;
+            opacity: 0.9;
+            display: flex; align-items: center; justify-content: center; gap: 0.35rem;
+            transition: all 0.3s;
+        }
+        .tara-cat-card:hover .tara-cat-count {
+            gap: 0.6rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-shadow: none;
+            opacity: 1;
+            background: #fff;
+            border-radius: 99px;
+            padding: 0.15rem 0.75rem;
+            width: fit-content;
+            margin: 0.35rem auto 0;
+        }
+
+        @media (max-width: 768px) {
+            .tara-cat-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                padding: 0 1rem;
+            }
+            .tara-cat-img-wrap {
+                padding-top: 100%;
+            }
+        }
+
+        /* ===================== TARA COLORS SECTION ===================== */
+        .tara-colors-section {
+            background: var(--surface);
+            padding: 4.5rem 0 5rem;
+            text-align: center;
+        }
+        .color-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1.5px solid #eaeaea;
+            width: fit-content;
+            margin-left: auto; margin-right: auto;
+            padding-bottom: 0.5rem;
+        }
+        .color-tab-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-ui);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #777;
+            cursor: pointer;
+            padding: 0.4rem 0.75rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .color-tab-btn:hover {
+            color: var(--primary);
+        }
+        .color-tab-btn.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .color-tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -9px; left: 0; right: 0;
+            height: 2.5px;
+            background: var(--primary);
+        }
+
+        /* ===================== SHOP LAYOUT ===================== */
+        .shop-layout {
+            display: flex;
+            gap: 2.25rem;
+            margin-top: 1.5rem;
+            position: relative;
+        }
+
+        /* Sidebar Filters */
+        .shop-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+        .sidebar-overlay {
+            position: fixed; inset: 0;
+            background: rgba(10,32,64,0.4);
+            backdrop-filter: blur(2px);
+            z-index: 998;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .sidebar-overlay.active {
+            opacity: 1; pointer-events: auto;
+        }
+
+        .sidebar-widget {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            box-shadow: 0 4px 12px rgba(10,32,64,0.02);
+        }
+        .widget-title {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-1);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* Category Filter List */
+        .widget-list {
+            list-style: none;
+            padding: 0; margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .cat-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-2);
+            text-decoration: none;
+            padding: 0.4rem 0.5rem;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s;
+        }
+        .cat-link:hover {
+            color: var(--primary);
+            background: var(--surface-2);
+        }
+        .cat-link.active {
+            color: var(--primary);
+            font-weight: 700;
+            background: var(--surface-3);
+        }
+        .cat-link .count-badge {
+            background: var(--border-strong);
+            color: var(--text-2);
+            font-size: 0.72rem;
+            padding: 0.1rem 0.4rem;
+            border-radius: 99px;
+            font-weight: 600;
+        }
+        .cat-link.active .count-badge {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* Size Filter Grid */
+        .size-filter-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+        .size-btn {
+            padding: 0.5rem 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: var(--surface);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-sm);
+            color: var(--text-2);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .size-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--surface-2);
+        }
+        .size-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 10px var(--primary-glow);
+        }
+
+        /* Color Filter Grid (Swatches) */
+        .color-filter-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+        .color-swatch-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.5rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-2);
+            background: var(--surface);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .color-swatch-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .color-swatch-btn.active {
+            border-color: var(--primary);
+            background: var(--surface-3);
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .swatch-color {
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .swatch-color.all-colors {
+            background: linear-gradient(45deg, #f43f5e, #3b82f6, #eab308, #10b981);
+        }
+
+        /* Price Filter List */
+        .price-filter-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .price-btn {
+            text-align: left;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--surface);
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-sm);
+            color: var(--text-2);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .price-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--surface-2);
+        }
+        .price-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 10px var(--primary-glow);
+        }
+
+        .btn-clear-filters {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #f8fafc;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: var(--radius-md);
+            color: #64748b;
+            cursor: pointer;
+            display: none;
+            align-items: center; justify-content: center; gap: 0.4rem;
+            transition: all 0.2s;
+        }
+        .btn-clear-filters.active {
+            display: flex;
+        }
+        .btn-clear-filters:hover {
+            background: #f1f5f9;
+            color: #334155;
+            border-color: #94a3b8;
+        }
+
+        /* Content Area */
+        .shop-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Shop Toolbar */
+        .shop-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 0.75rem 1.25rem;
+            box-shadow: 0 4px 12px rgba(10,32,64,0.02);
+        }
+
+        /* Search Box */
+        .search-box-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 200px;
+            max-width: 320px;
+        }
+        .search-box-wrap .search-icon {
+            position: absolute;
+            left: 1rem; top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-3);
+            font-size: 0.88rem;
+            pointer-events: none;
+        }
+        #search-input {
+            width: 100%;
+            padding: 0.55rem 1rem 0.55rem 2.25rem;
+            font-size: 0.85rem;
+            border: 1.5px solid var(--border);
+            border-radius: 99px;
+            background: var(--surface-2);
+            color: var(--text-1);
+            transition: all 0.2s var(--transition);
+        }
+        #search-input:focus {
+            border-color: var(--primary);
+            background: var(--surface);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+            outline: none;
+        }
+
+        .toolbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .btn-mobile-filter {
+            display: none;
+            align-items: center; gap: 0.4rem;
+            padding: 0.55rem 1rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-2);
+            background: var(--surface);
+            border: 1.5px solid var(--border-strong);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-mobile-filter:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .sort-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .sort-wrap label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-3);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            white-space: nowrap;
+        }
+        #sort-select {
+            padding: 0.45rem 1.5rem 0.45rem 0.75rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-2);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        #sort-select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        /* ===================== PRODUCT GRID ===================== */
+        .products-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .products-grid .product-card {
+            flex: 0 1 calc(33.333% - 1rem);
+            min-width: 220px;
+            max-width: 320px;
+        }
+        @media (max-width: 900px) {
+            .products-grid .product-card { flex: 0 1 calc(50% - 0.75rem); }
+        }
+        @media (max-width: 540px) {
+            .products-grid .product-card { flex: 0 1 calc(50% - 0.5rem); min-width: 150px; }
+        }
+
+        .product-card {
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.35s var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            /* Glassmorphism */
+            backdrop-filter: blur(12px);
+            background: rgba(255,255,255,0.45);
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), 0 12px 24px rgba(15, 82, 186, 0.08);
+            border-color: rgba(15, 82, 186, 0.2);
+        }
+
+        .product-img-wrap {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            background: var(--surface-2);
+        }
+        .product-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--transition);
+        }
+        .product-card:hover .product-img-wrap img { transform: scale(1.05); }
+
+        .badge-new, .badge-hot {
+            position: absolute;
+            top: 12px; left: 12px;
+            padding: 0.22rem 0.7rem;
+            border-radius: 99px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            z-index: 1;
+        }
+        .badge-new { background: var(--text-1); color: #fff; }
+        .badge-hot { background: #ef4444; color: #fff; top: 12px; left: auto; right: 12px; }
+
+        .product-size-tag {
+            position: absolute;
+            bottom: 12px; right: 12px;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 99px;
+            padding: 0.2rem 0.75rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-1);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            z-index: 1;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .btn-book-now {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.52rem 1.1rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(15, 82, 186, 0.15);
+        }
+        .btn-book-now:hover {
+            background: var(--primary-2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px var(--primary-glow);
+        }
+        .btn-book-now i {
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .btn-book-now {
+                padding: 0;
+                border-radius: 50%;
+                width: 32px;
+                height: 32px;
+                justify-content: center;
+            }
+            .btn-book-now .btn-text {
+                display: none;
+            }
+            .btn-book-now i {
+                margin: 0;
+                font-size: 0.9rem;
+            }
+        }
+
+        .product-info {
+            padding: 1.1rem 1.2rem 1.3rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .product-brand {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.35rem;
+        }
+        .product-name {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-1);
+            line-height: 1.3;
+            margin-bottom: 0.85rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+        .price-block {}
+        .price-note { font-size: 0.68rem; color: var(--text-3); font-weight: 500; }
+        .price-amount { font-size: 1.1rem; font-weight: 800; color: var(--primary); letter-spacing: -0.02em; }
+        .category-dot {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-3);
+            background: var(--surface-2);
+            padding: 0.25rem 0.7rem;
+            border-radius: 99px;
+        }
+
+        /* Loading skeleton */
+        .products-loading {
+            grid-column: 1/-1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5rem 0;
+            gap: 1rem;
+            color: var(--text-3);
+        }
+        .loading-spinner {
+            width: 44px; height: 44px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.75s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .products-loading p { font-family: var(--font-display); font-style: italic; font-size: 1rem; }
+
+        /* ===================== TESTIMONIALS ===================== */
+        .testimonials-section { background: var(--surface); }
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .testi-card {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            transition: all 0.3s var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .testi-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem; right: 1.5rem;
+            font-family: var(--font-display);
+            font-size: 6rem;
+            line-height: 1;
+            color: var(--primary);
+            opacity: 0.07;
+            font-weight: 700;
+        }
+        .testi-card:hover { box-shadow: var(--shadow-md); background: var(--surface); border-color: var(--border-strong); transform: translateY(-3px); }
+        .testi-stars {
+            display: flex; gap: 3px;
+            margin-bottom: 1rem;
+        }
+        .testi-stars i { color: #f59e0b; font-size: 0.85rem; }
+        .testi-quote {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text-2);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .testi-person { display: flex; align-items: center; gap: 0.8rem; }
+        .testi-ava {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--surface-3);
+            border: 2px solid var(--border-strong);
+            flex-shrink: 0;
+        }
+        .testi-ava img { width: 100%; height: 100%; object-fit: cover; }
+        .testi-name { font-size: 0.88rem; font-weight: 700; color: var(--text-1); }
+        .testi-role { font-size: 0.72rem; color: var(--text-3); }
+
+        /* ===================== FAQ ===================== */
+        .faq-section { background: var(--surface-2); }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .faq-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: border-color 0.25s;
+        }
+        .faq-card.open { border-color: var(--primary); }
+        .faq-trigger {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.3rem 1.5rem;
+            background: none;
+            border: none;
+            text-align: left;
+            font-family: var(--font-ui);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-1);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .faq-trigger:hover, .faq-card.open .faq-trigger { color: var(--primary); }
+        .faq-icon {
+            width: 28px; height: 28px;
+            background: var(--surface-2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+        .faq-card.open .faq-icon { background: var(--primary); color: #fff; transform: rotate(180deg); }
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s var(--transition);
+            font-size: 0.875rem;
+            color: var(--text-2);
+            line-height: 1.75;
+        }
+        .faq-body-inner { padding: 0 1.5rem 1.5rem; }
+        .faq-card.open .faq-body { max-height: 300px; }
+
+        /* ===================== BOOKING DRAWER ===================== */
+        .drawer-overlay {
+            position: fixed; inset: 0; z-index: 1999;
+            background: rgba(10,32,64,0.5);
+            backdrop-filter: blur(4px);
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.35s;
+        }
+        .drawer-overlay.active { opacity: 1; pointer-events: auto; }
+
+        .drawer {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 500px; max-width: calc(100vw - 32px);
+            height: auto;
+            max-height: calc(100vh - 32px);
+            z-index: 2000;
+            background: var(--surface);
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius-lg);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex; flex-direction: column;
+            overflow: hidden;
+        }
+        .drawer.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ── Mobile bottom sheet ── */
+        @media (max-width: 640px) {
+            .drawer {
+                top: auto;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                transform: translateY(100%);
+                width: 100%;
+                max-width: 100%;
+                max-height: 88vh;
+                border-radius: 20px 20px 0 0;
+                opacity: 1;
+            }
+            .drawer.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            .drawer-header {
+                padding: 1rem 1.25rem;
+                border-radius: 20px 20px 0 0;
+                position: relative;
+            }
+            .drawer-header::before {
+                content: '';
+                display: block;
+                width: 36px; height: 4px;
+                background: rgba(255,255,255,0.4);
+                border-radius: 99px;
+                position: absolute;
+                top: 0.55rem;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .drawer-header h3 { font-size: 1rem; }
+            .drawer-body {
+                padding: 1rem 1.1rem;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .drawer-body .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .drawer-body .form-group {
+                margin-bottom: 0.85rem;
+            }
+            .drawer-body .form-group label {
+                font-size: 0.72rem;
+                margin-bottom: 0.3rem;
+            }
+            .drawer-body .form-input {
+                padding: 0.65rem 0.9rem;
+                font-size: 0.88rem;
+            }
+            .booking-summary {
+                padding: 0.9rem 1rem;
+                margin: 0.85rem 0;
+            }
+            .summary-row {
+                font-size: 0.8rem;
+                padding: 0.3rem 0;
+            }
+            .summary-row.total {
+                font-size: 0.92rem;
+            }
+            .btn-submit {
+                padding: 0.9rem;
+                font-size: 0.85rem;
+                border-radius: 12px;
+            }
+        }
+
+        /* ── Image skeleton loading ── */
+        .img-skeleton {
+            background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 50%, var(--surface-2) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-shimmer 1.4s infinite;
+        }
+        @keyframes skeleton-shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .product-img-wrap img {
+            background: var(--surface-2);
+            transition: opacity 0.3s;
+        }
+        .product-img-wrap img.loading { opacity: 0; }
+        .product-img-wrap img.loaded { opacity: 1; }
+
+        .drawer-header {
+            padding: 1.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .drawer-header h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: #fff; }
+        .drawer-header p { font-size: 0.78rem; color: rgba(255,255,255,0.7); margin-top: 0.2rem; }
+        .btn-close-drawer {
+            background: rgba(255,255,255,0.15); border: none; color: #fff;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-close-drawer:hover { background: rgba(255,255,255,0.3); }
+
+        .drawer-body { padding: 1.5rem; flex: 1; overflow-y: auto; }
+        .drawer-footer {
+            padding: 1rem 1.5rem;
+            padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+            border-top: 1px solid var(--border);
+            background: var(--surface);
+            flex-shrink: 0;
+        }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--text-2); margin-bottom: 0.45rem; text-transform: uppercase; letter-spacing: 0.04em; }
+        .form-input {
+            width: 100%;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.7rem 1rem;
+            font-size: 0.9rem;
+            font-family: var(--font-ui);
+            color: var(--text-1);
+            background: var(--surface);
+            outline: none;
+            transition: all 0.2s;
+        }
+        .form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-glow); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        .booking-summary {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1.2rem;
+            margin: 1.2rem 0;
+        }
+        .summary-row {
+            display: flex; justify-content: space-between;
+            font-size: 0.84rem; padding: 0.38rem 0;
+            color: var(--text-2);
+            border-bottom: 1px dashed var(--border);
+        }
+        .summary-row:last-child { border: none; }
+        .summary-row.total {
+            font-weight: 800; font-size: 1rem;
+            color: var(--primary);
+            padding-top: 0.75rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+            color: #fff;
+            border: none;
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem; font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px var(--primary-glow);
+            display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+        }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 28px var(--primary-glow); }
+
+        /* ===================== TOAST ===================== */
+        .toast {
+            position: fixed; bottom: 2rem; right: 2rem; z-index: 3000;
+            background: var(--text-1); color: #fff;
+            padding: 1rem 1.4rem;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-lg);
+            display: none; align-items: center; gap: 0.8rem;
+            font-size: 0.87rem; font-weight: 500;
+            min-width: 280px;
+            animation: slideUp 0.3s var(--transition);
+        }
+        .toast.success { background: #15803d; }
+        .toast.error { background: #dc2626; }
+        @keyframes slideUp { from { transform: translateY(14px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        /* ===================== FLOATING BTNS ===================== */
+        .floating-contact {
+            position: fixed; bottom: 2rem; left: 2rem;
+            z-index: 999;
+            display: flex; flex-direction: column; gap: 0.75rem;
+        }
+        .float-btn {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.2rem;
+            box-shadow: var(--shadow-md);
+            text-decoration: none;
+            transition: all 0.3s var(--transition);
+        }
+        .float-btn:hover { transform: scale(1.12) translateY(-2px); box-shadow: var(--shadow-lg); }
+        .float-btn.zalo {
+            background: transparent;
+            border: none;
+            box-shadow: var(--shadow-md);
+            padding: 0;
+        }
+        .float-btn.zalo:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        .float-btn.messenger { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
+        .float-btn.phone {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            position: relative;
+        }
+        .float-btn.phone::after {
+            content: '';
+            position: absolute; inset: 0;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            animation: ripple 2s infinite;
+        }
+        @keyframes ripple { from { transform: scale(1); opacity: 0.7; } to { transform: scale(1.75); opacity: 0; } }
+
+        /* Scroll to top button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 2rem; right: 2rem;
+            z-index: 999;
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            color: var(--text-2);
+            font-size: 1rem;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .scroll-top-btn.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .scroll-top-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .scroll-top-btn:hover i {
+            animation: bounce-up 0.4s ease;
+        }
+        @keyframes bounce-up {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        /* ===================== FOOTER ===================== */
+        footer {
+            background: var(--primary-3);
+            color: rgba(255,255,255,0.75);
+        }
+        .footer-top {
+            max-width: 1320px; margin: 0 auto;
+            padding: 3rem 2rem 1.5rem;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 2.5rem;
+        }
+        .footer-brand .logo-text { font-size: 1.4rem; color: #fff; margin-bottom: 0.6rem; }
+        .footer-desc { font-size: 0.82rem; line-height: 1.65; color: rgba(255,255,255,0.5); margin-bottom: 1.25rem; max-width: 280px; }
+        .footer-social { display: flex; gap: 1rem; align-items: center; }
+        .soc-btn {
+            color: rgba(255,255,255,0.65);
+            font-size: 1rem;
+            transition: color 0.2s, transform 0.2s;
+            line-height: 1;
+        }
+        .soc-btn:hover { color: #fff; transform: translateY(-2px); }
+
+        .footer-col h5 {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1rem;
+        }
+        .footer-col ul { display: flex; flex-direction: column; gap: 0.45rem; }
+        .footer-col ul a {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.45);
+            display: flex; align-items: center; gap: 0.4rem;
+            transition: all 0.2s;
+        }
+        .footer-col ul a i { font-size: 0.65rem; color: rgba(255,255,255,0.35); width: 10px; }
+        .footer-col ul a:hover { color: #fff; padding-left: 4px; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            max-width: 1320px; margin: 0 auto;
+            padding: 1.1rem 2rem;
+            display: flex; justify-content: space-between;
+            font-size: 0.75rem; color: rgba(255,255,255,0.35);
+            gap: 1rem;
+            align-items: center;
+        }
+        .footer-credit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+        }
+        .footer-credit strong {
+            color: rgba(255,255,255,0.85);
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        .mobile-menu-btn { display: none; }
+
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 1024px) {
+            .features-inner { grid-template-columns: repeat(2, 1fr); }
+            .testi-grid { grid-template-columns: repeat(2, 1fr); }
+            .faq-grid { grid-template-columns: 1fr; }
+            .hero-content { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            #header {
+                top: 0; left: 0; right: 0;
+                width: 100%; max-width: 100%;
+                border-radius: 0; border: none;
+                border-bottom: 1px solid #eaeaea;
+            }
+            body { padding-top: 64px; }
+            
+            /* Prevent Header Overflow */
+            .logo-text { font-size: 1.25rem; }
+            .logo-store { font-size: 0.82rem; margin-left: 0.25rem; }
+            .header-inner { padding: 0.6rem 1rem; gap: 0.75rem; }
+            .header-actions { gap: 0.85rem; }
+            .header-action-link { display: none !important; }
+            .cart-label { display: none !important; }
+            .header-cart-btn { font-size: 1.2rem; }
+            .icon-btn-text { font-size: 1.2rem; }
+
+            /* Mobile Nav Toggle */
+            .mobile-menu-btn {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                font-size: 1.1rem;
+                border: none;
+                background: none;
+                color: #111;
+                cursor: pointer;
+            }
+            .header-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: #ffffff;
+                border-top: 1px solid #eaeaea;
+                border-bottom: 1px solid #eaeaea;
+                padding: 1rem 0;
+                gap: 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                z-index: 1000;
+                animation: slideDownNav 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            }
+            .header-nav.active { display: flex; }
+            .header-nav a {
+                width: 100%;
+                padding: 0.8rem 2rem;
+                border-radius: 0;
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: #111;
+                border-bottom: none;
+                text-align: left;
+                display: block;
+            }
+            .header-nav a:last-child { border-bottom: none; }
+            .mobile-admin-link {
+                display: flex !important;
+                align-items: center;
+                gap: 0.5rem;
+                color: var(--primary) !important;
+                font-weight: 700;
+                border-top: 1px solid var(--border) !important;
+                margin-top: 0.5rem;
+                padding-top: 1rem !important;
+            }
+
+            .hero { min-height: 70vh; }
+            .testi-grid { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .form-row { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+
+            /* Reduced padding on mobile to optimize space usage */
+            .section-wrap {
+                padding: 2rem 1rem;
+            }
+
+            /* Stack section header titles vertically on mobile to prevent overflow */
+            .section-header-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .shop-layout {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .shop-sidebar {
+                position: fixed;
+                top: 0; left: -320px;
+                width: 300px;
+                height: 100%;
+                z-index: 2001;
+                background: var(--surface);
+                box-shadow: 20px 0 60px rgba(10,32,64,0.15);
+                padding: 1.5rem;
+                overflow-y: auto;
+                transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .shop-sidebar.active {
+                left: 0;
+            }
+            .btn-mobile-filter {
+                display: flex !important;
+            }
+            
+            /* Responsive Shop Toolbar layout */
+            .shop-toolbar {
+                padding: 0.75rem 0.75rem;
+                gap: 0.75rem;
+            }
+            .search-box-wrap {
+                max-width: 100%;
+                width: 100%;
+            }
+            .toolbar-actions {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                gap: 0.5rem;
+            }
+            .btn-mobile-filter {
+                flex: 1;
+                justify-content: center;
+            }
+            .sort-wrap {
+                flex: 1;
+                display: flex;
+            }
+            .sort-wrap label {
+                display: none !important;
+            }
+            #sort-select {
+                flex: 1;
+                width: 100%;
+            }
+
+            /* Optimize Product Card Typography on Mobile */
+            .product-brand { font-size: 0.65rem; }
+            .product-name { font-size: 0.8rem; }
+            .price-amount { font-size: 0.9rem; }
+            .price-note { font-size: 0.65rem; }
+
+            /* Floating Contact – Left side on mobile */
+            .floating-contact {
+                left: 0.85rem;
+                right: auto;
+                bottom: 1rem;
+                flex-direction: column;
+                gap: 0.55rem;
+            }
+            .float-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+            /* Scroll to top – smaller on mobile */
+            .scroll-top-btn {
+                bottom: 1rem;
+                right: 0.85rem;
+                width: 38px; height: 38px;
+                font-size: 0.9rem;
+            }
+
+            .banner-slider-section {
+                height: auto !important;
+                aspect-ratio: 2 / 1 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow: hidden !important;
+            }
+            .banner-slider {
+                width: 100% !important;
+                height: 100% !important;
+            }
+            .banner-slide {
+                width: 100% !important;
+                height: 100% !important;
+                display: block !important;
+                position: absolute !important;
+                inset: 0 !important;
+            }
+            .banner-slide img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                object-position: center !important;
+            }
+            .slider-btn {
+                width: 36px; height: 36px;
+                font-size: 0.9rem;
+            }
+            .prev-btn { left: 0.5rem; }
+            .next-btn { right: 0.5rem; }
+            
+            /* Shift pagination dots lower on mobile to avoid overlapping logo/text in images */
+            .slider-dots {
+                bottom: 0.75rem;
+            }
+
+            /* Color Tabs Mobile Optimization */
+            .color-tabs {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 0.75rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 1rem !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .color-tab-btn {
+                font-size: 0.82rem !important;
+                padding: 0.3rem 0.6rem !important;
+            }
+
+            /* Features Strip Luxury – 2x2 grid mobile */
+            .features-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .feature-item {
+                padding: 1.25rem 0.75rem;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+            .feature-item:nth-child(odd) {
+                border-right: 1px solid var(--border);
+            }
+            .feature-item:nth-child(3),
+            .feature-item:nth-child(4) {
+                border-bottom: none;
+            }
+            .feature-item .feat-icon-wrap {
+                width: 40px; height: 40px;
+                font-size: 0.9rem;
+            }
+            .feat-title {
+                font-size: 0.7rem;
+                letter-spacing: 0.04em;
+            }
+            .feat-desc {
+                font-size: 0.65rem;
+                line-height: 1.3;
+            }
+
+            /* Grand Opening Popup Mobile Scaling & Centering */
+            .popup-overlay {
+                padding: 1rem;
+            }
+            .popup-box {
+                border-radius: 20px;
+                width: 100%;
+                max-width: 100%;
+            }
+            .popup-logo {
+                padding: 1.5rem 1.25rem 0.5rem;
+            }
+            .popup-title-wrap {
+                padding: 0.5rem 1.25rem 0.25rem;
+            }
+            .popup-grand {
+                font-size: 2.6rem;
+            }
+            .popup-opening {
+                font-size: 1.5rem;
+            }
+            .popup-price-tag {
+                margin: 1rem 1.25rem 0;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            .popup-discount {
+                margin: 0.85rem 1.25rem;
+                padding: 1rem;
+            }
+            .popup-percent {
+                font-size: 2.2rem;
+            }
+            .popup-date {
+                margin: 0.75rem 1.25rem 1.25rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.78rem;
+                white-space: normal;
+                text-align: center;
+            }
+            .popup-cta {
+                margin: 0 1.25rem 1.5rem;
+                width: calc(100% - 2.5rem);
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-btns { flex-direction: column; }
+            .hero-stats { gap: 1.5rem; }
+            .logo-text { font-size: 1.2rem; }
+        }
+
+        @keyframes slideDownNav {
+            from { opacity: 0; transform: translateY(-8px) scaleY(0.95); }
+            to { opacity: 1; transform: translateY(0) scaleY(1); }
+        }
+
+        /* Lookup Button & Modal Styles */
+        .header-lookup-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #111;
+            font-size: 1.15rem;
+            transition: color 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .header-lookup-btn:hover {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .lookup-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .lookup-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .lookup-modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+        }
+        .lookup-modal-content {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 2.5rem 2rem 2rem 2rem;
+            z-index: 10000;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            max-height: 80vh;
+        }
+        .lookup-modal.active .lookup-modal-content {
+            transform: translateY(0);
+        }
+        .lookup-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f1f5f9;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #64748b;
+            transition: all 0.2s ease;
+        }
+        .lookup-modal-close:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+        .lookup-modal-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: #0f2d6e;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        .lookup-search-box {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .lookup-search-box input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+        .lookup-search-box input:focus {
+            border-color: var(--primary);
+        }
+        .lookup-search-box button {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lookup-search-box button:hover {
+            background: #1a5fa6;
+        }
+        .lookup-results {
+            overflow-y: auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-right: 0.25rem;
+        }
+        .lookup-results::-webkit-scrollbar {
+            width: 6px;
+        }
+        .lookup-results::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .lookup-results::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        .lookup-results::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .lookup-item {
+            display: flex;
+            gap: 1rem;
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+            border-radius: 16px;
+            padding: 1rem;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: left;
+        }
+        .lookup-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .lookup-item-img {
+            width: 70px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        .lookup-item-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .lookup-item-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #0f172a;
+        }
+        .lookup-item-date {
+            font-size: 0.82rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .lookup-item-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+        .lookup-item-status-badge {
+            align-self: flex-start;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            margin-top: 0.25rem;
+        }
+        .status-cho-duyet {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+        .status-dang-thue {
+            background-color: #dbeafe;
+            color: #2563eb;
+        }
+        .status-da-tra {
+            background-color: #dcfce7;
+            color: #16a34a;
+        }
+        .status-other {
+            background-color: #f1f5f9;
+            color: #475569;
+        }
+
+        /* Gallery Modal Styles */
+        .gallery-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9998;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .gallery-modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        .gallery-modal-content {
+            position: relative;
+            background: #fff;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 850px;
+            border-radius: 24px;
+            overflow: hidden;
+            z-index: 10000;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            display: none;
+        }
+        .gallery-modal.active .gallery-modal-content {
+            transform: scale(1);
+            display: block;
+        }
+        .gallery-modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: rgba(15, 23, 42, 0.05);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: #64748b;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+        .gallery-modal-close:hover {
+            background: rgba(15, 23, 42, 0.1);
+            color: #0f172a;
+        }
+        .gallery-modal-body {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            height: 100%;
+        }
+        @media (max-width: 768px) {
+            .gallery-modal-body {
+                grid-template-columns: 1fr;
+                overflow-y: auto;
+                max-height: 90vh;
+            }
+        }
+        
+        .gallery-images-section {
+            padding: 2rem;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-right: 1px solid #f1f5f9;
+        }
+        .gallery-main-wrap {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            background: #fff;
+        }
+        .gallery-main-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-thumbs {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.25rem;
+        }
+        .gallery-thumb {
+            width: 65px;
+            height: 85px;
+            border-radius: 8px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            opacity: 0.7;
+            flex-shrink: 0;
+        }
+        .gallery-thumb:hover, .gallery-thumb.active {
+            border-color: var(--primary);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .gallery-details-section {
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+        @media (max-width: 768px) {
+            .gallery-details-section {
+                padding: 1.5rem 2rem;
+            }
+        }
+        .gallery-detail-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        #gallery-dress-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #0f2d6e;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+        .gallery-detail-price-box {
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+            border-radius: 16px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .gallery-detail-price-box .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .gallery-detail-price-box .price-item .label {
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        .gallery-detail-price-box .price-item .value {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .gallery-detail-price-box .price-item .value-deposit {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #334155;
+        }
+        .gallery-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        .spec-item {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .spec-item i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        .spec-item .label {
+            font-size: 0.68rem;
+            color: #64748b;
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+        .spec-item strong {
+            font-size: 0.8rem;
+            color: #0f172a;
+        }
+        .gallery-book-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+            color: #fff;
+            border: none;
+            padding: 1rem 1.5rem;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 10px 20px var(--primary-glow);
+            width: 100%;
+        }
+        .gallery-book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px var(--primary-glow);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <div class="header-inner">
+            <!-- Logo -->
+            <div class="logo-wrap" onclick="window.location.reload()">
+                <div class="logo-text">CHÉRIE</div>
+                <div class="logo-store">dress</div>
+            </div>
+
+            <!-- Nav -->
+            <nav class="header-nav" id="header-nav">
+                <a href="#" class="active">TRANG CHỦ</a>
+                <a href="#contact">GIỚI THIỆU</a>
+                <a href="#catalog" onclick="clearAllFilters()">SẢN PHẨM <i class="fa-solid fa-chevron-down" style="font-size:0.6rem; margin-left:2px;"></i></a>
+                <a href="#faq">CHÍNH SÁCH</a>
+                <a href="#faq">MEMBERSHIP</a>
+                <a href="#contact">BLOG</a>
+                <a href="#contact">LIÊN HỆ</a>
+                <a href="/demo/admin" class="mobile-admin-link"><i class="fa-solid fa-lock"></i> QUẢN LÝ CỬA HÀNG</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="header-actions">
+                <a href="#catalog" class="icon-btn-text" onclick="focusSearch()" title="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="/demo/admin" class="header-action-link">ĐĂNG NHẬP</a>
+                <button class="header-lookup-btn" onclick="openLookupModal()" title="Tra cứu lịch hẹn">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </button>
+                <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HERO BANNER SLIDER ===== -->
+    <section class="banner-slider-section">
+        <div class="banner-slider" id="banner-slider">
+            <div class="banner-slide active">
+                <img src="/api/demo/proxy-image?url=https://thuevay.vn/wp-content/uploads/2024/12/465622292_526713830205164_237397324668818263_n.jpg" alt="Tara Store Banner 1">
+            </div>
+            <div class="banner-slide">
+                <img src="/api/demo/proxy-image?url=https://thuevay.vn/wp-content/uploads/2024/12/466423032_531232703086610_7492848436845101036_n.jpg" alt="Tara Store Banner 2">
+            </div>
+            <div class="banner-slide">
+                <img src="/api/demo/proxy-image?url=https://thuevay.vn/wp-content/uploads/2024/12/465609638_525990750277472_416902980090378937_n.jpg" alt="Tara Store Banner 3">
+            </div>
+        </div>
+        <button class="slider-btn prev-btn" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="slider-btn next-btn" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="slider-dots" id="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES STRIP ===== -->
+    <div class="features-strip">
+        <div class="features-inner">
+            <div class="feature-item">
+                <div class="feat-icon-wrap"><i class="fa-solid fa-star"></i></div>
+                <div class="feat-text-block">
+                    <div class="feat-title">Thiết Kế Chính Hãng</div>
+                    <div class="feat-desc">100+ thương hiệu nổi tiếng</div>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feat-icon-wrap"><i class="fa-solid fa-scissors"></i></div>
+                <div class="feat-text-block">
+                    <div class="feat-title">Chỉnh Sửa Theo Số Đo</div>
+                    <div class="feat-desc">Bóp eo, chỉnh chiều dài miễn phí</div>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feat-icon-wrap"><i class="fa-solid fa-shirt"></i></div>
+                <div class="feat-text-block">
+                    <div class="feat-title">Giặt Là Hơi Khô Chuyên Dụng</div>
+                    <div class="feat-desc">Đã bao gồm trong phí thuê</div>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feat-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="feat-text-block">
+                    <div class="feat-title">Hoàn Tiền Cọc 100%</div>
+                    <div class="feat-desc">Cam kết minh bạch, rõ ràng</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TARA CATEGORIES SECTION ===== -->
+    <section class="tara-categories-section">
+        <div class="section-wrap">
+            <h2 class="tara-section-title" style="text-transform: uppercase;">Danh mục sản phẩm</h2>
+            <div class="tara-cat-grid">
+                <div class="tara-cat-card" onclick="filterCat('Áo Dài')">
+                    <div class="tara-cat-img-wrap">
+                        <img src="/api/demo/proxy-image?url=https://thuevay.vn/wp-content/uploads/2024/12/338146273_759679602404017_2943694123853596028_n.jpg" alt="ÁO DÀI">
+                        <div class="tara-cat-overlay"></div>
+                    </div>
+                    <div class="tara-cat-info">
+                        <h3>ÁO DÀI</h3>
+                        <p class="tara-cat-count">Xem thêm <i class="fa-solid fa-arrow-right-long"></i></p>
+                    </div>
+                </div>
+                <div class="tara-cat-card" onclick="filterCat('Set')">
+                    <div class="tara-cat-img-wrap">
+                        <img src="/api/demo/proxy-image?url=https://thuevay.vn/wp-content/uploads/2025/12/IMG_8542-e1764754743347.jpg" alt="SET">
+                        <div class="tara-cat-overlay"></div>
+                    </div>
+                    <div class="tara-cat-info">
+                        <h3>SET</h3>
+                        <p class="tara-cat-count">Xem thêm <i class="fa-solid fa-arrow-right-long"></i></p>
+                    </div>
+                </div>
+                <div class="tara-cat-card" onclick="filterCat('Váy Body')">
+                    <div class="tara-cat-img-wrap">
+                        <img src="/api/demo/proxy-image?url=https://thuevay.vn/wp-content/uploads/2025/12/490192212_641490972060782_8900130820694787555_n-1.jpg" alt="VÁY BODY">
+                        <div class="tara-cat-overlay"></div>
+                    </div>
+                    <div class="tara-cat-info">
+                        <h3>VÁY BODY</h3>
+                        <p class="tara-cat-count">Xem thêm <i class="fa-solid fa-arrow-right-long"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CATALOG ===== -->
+    <section id="catalog" style="background: var(--surface-2);">
+        <div class="section-wrap">
+            <div class="section-header-row">
+                <div>
+                    <span class="section-label">Bộ Sưu Tập</span>
+                    <h2 class="section-title">Sản Phẩm <em>Nổi Bật</em></h2>
+                    <p class="section-sub">Tuyển lựa kỹ càng từ 100+ thương hiệu thiết kế hàng đầu Việt Nam.</p>
+                </div>
+                <a href="#catalog" class="link-arrow">Xem tất cả <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Sidebar Overlay for mobile -->
+            <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+            <div class="shop-layout">
+                <!-- Left Sidebar Filters -->
+                <aside class="shop-sidebar" id="shop-sidebar">
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Danh Mục</h3>
+                        <ul class="widget-list">
+                            <li><a href="#catalog" class="cat-link active" data-cat="all" onclick="setCatFilter('all', this)">Tất cả sản phẩm <span class="count-badge" id="count-all">0</span></a></li>
+                            <li><a href="#catalog" class="cat-link" data-cat="Áo Dài" onclick="setCatFilter('Áo Dài', this)">Áo Dài <span class="count-badge" id="count-aodai">0</span></a></li>
+                            <li><a href="#catalog" class="cat-link" data-cat="Set" onclick="setCatFilter('Set', this)">Set <span class="count-badge" id="count-set">0</span></a></li>
+                            <li><a href="#catalog" class="cat-link" data-cat="Váy Body" onclick="setCatFilter('Váy Body', this)">Váy Body <span class="count-badge" id="count-body">0</span></a></li>
+                            <li><a href="#catalog" class="cat-link" data-cat="Váy Xòe" onclick="setCatFilter('Váy Xòe', this)">Váy Xòe <span class="count-badge" id="count-xoe">0</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Tìm Theo Size</h3>
+                        <div class="size-filter-grid">
+                            <button class="size-btn active" data-size="all" onclick="setSizeFilter('all', this)">Tất cả</button>
+                            <button class="size-btn" data-size="S" onclick="setSizeFilter('S', this)">S</button>
+                            <button class="size-btn" data-size="M" onclick="setSizeFilter('M', this)">M</button>
+                            <button class="size-btn" data-size="L" onclick="setSizeFilter('L', this)">L</button>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Tìm Theo Màu</h3>
+                        <div class="color-filter-grid">
+                            <button class="color-swatch-btn active" data-color="all" onclick="setColorFilter('all', this)">
+                                <span class="swatch-color all-colors"></span>
+                                <span class="swatch-label">Tất cả</span>
+                            </button>
+                            <button class="color-swatch-btn" data-color="Trắng" onclick="setColorFilter('Trắng', this)">
+                                <span class="swatch-color" style="background-color: #ffffff; border: 1px solid #cbd5e1;"></span>
+                                <span class="swatch-label">Trắng</span>
+                            </button>
+                            <button class="color-swatch-btn" data-color="Đen" onclick="setColorFilter('Đen', this)">
+                                <span class="swatch-color" style="background-color: #0f172a;"></span>
+                                <span class="swatch-label">Đen</span>
+                            </button>
+                            <button class="color-swatch-btn" data-color="Đỏ" onclick="setColorFilter('Đỏ', this)">
+                                <span class="swatch-color" style="background-color: #dc2626;"></span>
+                                <span class="swatch-label">Đỏ</span>
+                            </button>
+                            <button class="color-swatch-btn" data-color="Hồng" onclick="setColorFilter('Hồng', this)">
+                                <span class="swatch-color" style="background-color: #ec4899;"></span>
+                                <span class="swatch-label">Hồng</span>
+                            </button>
+                            <button class="color-swatch-btn" data-color="kem" onclick="setColorFilter('kem', this)">
+                                <span class="swatch-color" style="background-color: #fef3c7; border: 1px solid #f59e0b;"></span>
+                                <span class="swatch-label">Kem</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Khoảng Giá</h3>
+                        <div class="price-filter-list">
+                            <button class="price-btn active" data-price="all" onclick="setPriceFilter('all', this)">Tất cả mức giá</button>
+                            <button class="price-btn" data-price="under-300" onclick="setPriceFilter('under-300', this)">Dưới 300K / ngày</button>
+                            <button class="price-btn" data-price="300-500" onclick="setPriceFilter('300-500', this)">300K - 500K / ngày</button>
+                            <button class="price-btn" data-price="above-500" onclick="setPriceFilter('above-500', this)">Trên 500K / ngày</button>
+                        </div>
+                    </div>
+                    <button class="btn-clear-filters" id="btn-clear-filters" onclick="clearAllFilters()"><i class="fa-solid fa-filter-circle-xmark"></i> Xóa bộ lọc</button>
+                </aside>
+
+                <!-- Right Catalog Content -->
+                <div class="shop-content">
+                    <!-- Shop Toolbar -->
+                    <div class="shop-toolbar">
+                        <div class="search-box-wrap">
+                            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                            <input type="text" id="search-input" placeholder="Tìm tên váy, thương hiệu..." oninput="handleSearch()">
+                        </div>
+                        <div class="toolbar-actions">
+                            <button class="btn-mobile-filter" onclick="toggleMobileSidebar()"><i class="fa-solid fa-sliders"></i> Bộ lọc</button>
+                            <div class="sort-wrap">
+                                <label for="sort-select">Sắp xếp</label>
+                                <select id="sort-select" onchange="handleSort()">
+                                    <option value="newest">Mới nhất</option>
+                                    <option value="price-asc">Giá: Thấp đến Cao</option>
+                                    <option value="price-desc">Giá: Cao đến Thấp</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid" id="products-container">
+                        <div class="products-loading">
+                            <div class="loading-spinner"></div>
+                            <p>Đang tải sản phẩm...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TARA COLORS SECTION ===== -->
+    <section class="tara-colors-section">
+        <div class="section-wrap">
+            <h2 class="tara-section-title">MÀU SẮC</h2>
+            <div class="color-tabs">
+                <button class="color-tab-btn active" data-col-tab="Trắng" onclick="filterColorTab('Trắng', this)">Trắng</button>
+                <button class="color-tab-btn" data-col-tab="Đen" onclick="filterColorTab('Đen', this)">Đen</button>
+                <button class="color-tab-btn" data-col-tab="Hồng" onclick="filterColorTab('Hồng', this)">Hồng</button>
+                <button class="color-tab-btn" data-col-tab="Kem" onclick="filterColorTab('Kem', this)">Beige</button>
+                <button class="color-tab-btn" data-col-tab="Đỏ" onclick="filterColorTab('Đỏ', this)">Đỏ</button>
+            </div>
+            <div class="products-grid" id="color-section-container">
+                <!-- Color products loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials-section">
+        <div class="section-wrap">
+            <div class="section-header-row">
+                <div>
+                    <span class="section-label">Đánh Giá</span>
+                    <h2 class="section-title">Khách Hàng <em>Nói Gì</em></h2>
+                </div>
+            </div>
+            <div class="testi-grid">
+                <div class="testi-card">
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-quote">"Váy siêu xinh, thơm và rất mới. Mình thuê chiếc váy cưới lễ hỏi, ai cũng khen trông như nàng thơ thanh tao. Chắc chắn sẽ quay lại!"</p>
+                    <div class="testi-person">
+                        <div class="testi-ava"><img src="/api/demo/proxy-image?url=https://images.unsplash.com/photo-1607503873903-c5e95f80d7b9?w=100&q=80" alt="Quỳnh Lê"></div>
+                        <div>
+                            <div class="testi-name">Quỳnh Lê</div>
+                            <div class="testi-role">Khách thuê tháng 6/2026</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-quote">"Dịch vụ siêu nhiệt tình, chỉnh sửa váy theo số đo rất vừa vặn. Lịch trình thuê rõ ràng, không lo trùng lịch. Rất an tâm khi chọn váy ở đây."</p>
+                    <div class="testi-person">
+                        <div class="testi-ava"><img src="/api/demo/proxy-image?url=https://images.unsplash.com/photo-1607503873903-c5e95f80d7b9?w=100&q=80" alt="Mai Anh"></div>
+                        <div>
+                            <div class="testi-name">Mai Anh</div>
+                            <div class="testi-role">Khách thuê tháng 7/2026</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-quote">"Váy dạ hội mặc lên tôn dáng dã man! Chất vải rất thích, giặt là thơm phức. Giá thuê hợp lý, siêu recommend cho mọi người!"</p>
+                    <div class="testi-person">
+                        <div class="testi-ava"><img src="/api/demo/proxy-image?url=https://images.unsplash.com/photo-1607503873903-c5e95f80d7b9?w=100&q=80" alt="Thùy Chi"></div>
+                        <div>
+                            <div class="testi-name">Thùy Chi</div>
+                            <div class="testi-role">Khách thuê tháng 5/2026</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section" id="faq">
+        <div class="section-wrap">
+            <div class="section-header-row">
+                <div>
+                    <span class="section-label">Hỏi & Đáp</span>
+                    <h2 class="section-title">Câu Hỏi <em>Thường Gặp</em></h2>
+                </div>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-card open">
+                    <button class="faq-trigger" onclick="toggleFaq(this)">
+                        <span>Quy trình đặt cọc và thuê váy như thế nào?</span>
+                        <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-body"><div class="faq-body-inner">Bạn chỉ cần chọn mẫu váy, chọn ngày thuê trên hệ thống. Khi đến nhận váy, thanh toán tiền thuê và đặt cọc thế chân. Tiền cọc hoàn trả 100% khi trả váy nguyên vẹn.</div></div>
+                </div>
+                <div class="faq-card">
+                    <button class="faq-trigger" onclick="toggleFaq(this)">
+                        <span>Thời gian thuê váy tính như thế nào?</span>
+                        <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-body"><div class="faq-body-inner">Gói chuẩn 3 ngày (Nhận → Mặc → Trả). Muốn gia hạn, liên hệ sớm để được tư vấn mức phí ưu đãi và tránh trùng lịch.</div></div>
+                </div>
+                <div class="faq-card">
+                    <button class="faq-trigger" onclick="toggleFaq(this)">
+                        <span>Chérie Dress có chỉnh sửa váy theo số đo không?</span>
+                        <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-body"><div class="faq-body-inner">Có! Chérie Dress hỗ trợ bóp eo, chỉnh chiều dài nhẹ nhàng theo số đo mà không ảnh hưởng đến phom dáng gốc.</div></div>
+                </div>
+                <div class="faq-card">
+                    <button class="faq-trigger" onclick="toggleFaq(this)">
+                        <span>Có cần tự giặt váy trước khi trả không?</span>
+                        <div class="faq-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-body"><div class="faq-body-inner">Không cần! Phí thuê đã bao gồm giặt là khô hơi cao cấp. Gấp gọn trả lại — đội kỹ thuật sẽ chăm sóc.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="contact">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="logo-text footer-brand">CHÉRIE <span>DRESS</span></div>
+                <p class="footer-desc">Chuyên cho thuê váy thiết kế cao cấp tại Hà Nội. Hơn 500 mẫu váy thiết kế sang xịn mịn.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/61591308482548" target="_blank" class="soc-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="soc-btn"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="soc-btn"><i class="fa-solid fa-comment"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Liên Kết</h5>
+                <ul>
+                    <li><a href="#catalog"><i class="fa-solid fa-chevron-right"></i> Sản phẩm</a></li>
+                    <li><a href="#catalog"><i class="fa-solid fa-chevron-right"></i> Áo Dài</a></li>
+                    <li><a href="#catalog"><i class="fa-solid fa-chevron-right"></i> Váy Body</a></li>
+                    <li><a href="#faq"><i class="fa-solid fa-chevron-right"></i> Chính Sách Thuê</a></li>
+                    <li><a href="/demo/admin"><i class="fa-solid fa-chevron-right"></i> Trang Quản Lý</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Liên Hê</h5>
+                <ul>
+                    <li><a href="tel:+84332699103"><i class="fa-solid fa-phone"></i> +84 332 699 103</a></li>
+                    <li><a href="mailto:cheriedress@gmail.com"><i class="fa-solid fa-envelope"></i> cheriedress@gmail.com</a></li>
+                    <li><a href="https://goo.gl/maps/Q33y3V3Q33"><i class="fa-solid fa-location-dot"></i> 01 Ngh. 79/40 P. Dương Quảng Hàm, Nghĩa Đô, HN</a></li>
+                    <li><a href="#"><i class="fa-solid fa-clock"></i> T2–CN: 9:00 – 21:30</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Chérie Dress. All rights reserved.</span>
+            <span class="footer-credit"><i class="fa-solid fa-code" style="font-size:0.65rem;"></i> by <strong>anhcoming</strong></span>
+        </div>
+    </footer>
+
+    <!-- ===== DRAWER ===== -->
+    <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+    <div class="drawer" id="booking-drawer">
+        <div class="drawer-header">
+            <div>
+                <h3 id="drawer-title">Đặt Lịch Thuê Váy</h3>
+                <p>Điền thông tin để xác nhận lịch</p>
+            </div>
+            <button class="btn-close-drawer" onclick="closeDrawer()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body">
+            <form id="booking-form" onsubmit="submitBooking(event)">
+                <input type="hidden" id="booking-dress-id">
+                <div class="form-group">
+                    <label for="customer-name">Họ và tên</label>
+                    <input type="text" class="form-input" id="customer-name" placeholder="Nguyễn Thị Lan" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">Số điện thoại</label>
+                    <input type="tel" class="form-input" id="customer-phone" placeholder="0332 699 103" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="start-date">Ngày & giờ nhận</label>
+                        <input type="text" class="form-input" id="start-date" onchange="calcPrice()" placeholder="Chọn ngày giờ nhận" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-date">Ngày & giờ trả</label>
+                        <input type="text" class="form-input" id="end-date" onchange="calcPrice()" placeholder="Chọn ngày giờ trả" required>
+                    </div>
+                </div>
+                <div class="booking-summary">
+                    <div class="summary-row"><span>Giá thuê / ngày:</span><span id="sum-price-day">—</span></div>
+                    <div class="summary-row"><span>Số ngày thuê:</span><span id="sum-days">0 ngày</span></div>
+                    <div class="summary-row"><span>Tiền cọc thế chân:</span><span id="sum-deposit">—</span></div>
+                    <div class="summary-row total"><span>Tổng tiền thuê:</span><span id="sum-total">—</span></div>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fa-solid fa-calendar-check"></i> Xác Nhận Đặt Lịch
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== GALLERY MODAL ===== -->
+    <div class="gallery-modal" id="gallery-modal">
+        <div class="gallery-modal-backdrop" onclick="closeGalleryModal()"></div>
+        <div class="gallery-modal-content">
+            <button class="gallery-modal-close" onclick="closeGalleryModal()">&times;</button>
+            <div class="gallery-modal-body">
+                <!-- Left: Image Gallery -->
+                <div class="gallery-images-section">
+                    <div class="gallery-main-wrap">
+                        <img id="gallery-main-img" src="" alt="Main Dress Image" onerror="this.src='/static/images/hero_bridal_gown.png'">
+                    </div>
+                    <div class="gallery-thumbs" id="gallery-thumbs">
+                        <!-- Thumbnails will be injected here -->
+                    </div>
+                </div>
+                <!-- Right: Product Details -->
+                <div class="gallery-details-section">
+                    <span id="gallery-dress-category" class="gallery-detail-category"></span>
+                    <h3 id="gallery-dress-name"></h3>
+                    
+                    <div class="gallery-detail-price-box">
+                        <div class="price-item">
+                            <span class="label">Giá thuê / ngày</span>
+                            <span id="gallery-dress-price" class="value"></span>
+                        </div>
+                        <div class="price-item">
+                            <span class="label">Tiền cọc thế chân</span>
+                            <span id="gallery-dress-deposit" class="value-deposit"></span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-specs-grid">
+                        <div class="spec-item">
+                            <i class="fa-solid fa-expand"></i>
+                            <div>
+                                <span class="label">Kích cỡ</span>
+                                <strong id="gallery-dress-size"></strong>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fa-solid fa-palette"></i>
+                            <div>
+                                <span class="label">Màu sắc</span>
+                                <strong id="gallery-dress-color"></strong>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <span class="label">Trạng thái</span>
+                                <strong id="gallery-dress-status" class="status-badge"></strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="gallery-book-btn" id="gallery-book-btn" onclick="triggerBookingFromGallery()">
+                        <i class="fa-solid fa-calendar-plus"></i> Đặt Lịch Thuê Ngay
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== LOOKUP MODAL ===== -->
+    <div class="lookup-modal" id="lookup-modal">
+        <div class="lookup-modal-backdrop" onclick="closeLookupModal()"></div>
+        <div class="lookup-modal-content">
+            <button class="lookup-modal-close" onclick="closeLookupModal()">&times;</button>
+            <h3>Tra cứu lịch hẹn</h3>
+            <div class="lookup-search-box">
+                <input type="tel" id="lookup-phone-input" placeholder="Nhập số điện thoại đặt lịch..." oninput="onLookupPhoneInput()">
+                <button onclick="performLookup()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="lookup-results" id="lookup-results">
+                <p style="text-align: center; color: #64748b; font-size: 0.9rem; padding: 2rem 0;">Nhập số điện thoại để tra cứu lịch sử đặt lịch.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== GRAND OPENING POPUP ===== -->
+    <div class="popup-overlay" id="grand-popup">
+        <div class="popup-box">
+            <button class="popup-close" onclick="closePopup()" aria-label="Đóng">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Logo -->
+            <div class="popup-logo">
+                <span class="popup-logo-text">✦ Chérie Dress ✦</span>
+            </div>
+
+            <!-- Title -->
+            <div class="popup-title-wrap">
+                <span class="sparkle">✦</span>
+                <span class="sparkle">✦</span>
+                <span class="sparkle">✦</span>
+                <span class="popup-grand">Grand</span>
+                <span class="popup-opening">Opening</span>
+            </div>
+
+            <!-- Price tag -->
+            <div class="popup-price-tag">
+                THUÊ VÁY GIÁ CHỈ TỪ <strong>69K</strong>
+            </div>
+
+            <!-- Discount -->
+            <div class="popup-discount">
+                <div class="popup-bow">🎀</div>
+                <div class="popup-discount-text">
+                    <p>GIẢM GIÁ<br>TẤT CẢ<br>MÃ VÁY</p>
+                </div>
+                <div class="popup-percent">10<span>%</span></div>
+            </div>
+
+            <!-- Date -->
+            <div class="popup-date">
+                <i class="fa-solid fa-calendar-days"></i>
+                Áp dụng từ ngày <strong>10/7 – 20/7</strong>
+            </div>
+
+            <!-- CTA -->
+            <button class="popup-cta" onclick="closePopup(); document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">
+                Xem Sản Phẩm Ngay
+            </button>
+            <button class="popup-skip" onclick="closePopup()">Bỏ qua, tiếp tục xem</button>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i id="toast-icon" class="fa-solid fa-circle-info"></i>
+        <span id="toast-msg">Thông báo</span>
+    </div>
+
+    <!-- Floating contact (LEFT) -->
+    <div class="floating-contact">
+        <a href="https://zalo.me/0332699103" target="_blank" class="float-btn zalo" title="Chat Zalo">
+            <img src="/static/images/zalo_icon.png" alt="Zalo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
+        </a>
+        <a href="https://m.me/cheriedress" target="_blank" class="float-btn messenger" title="Chat Messenger">
+            <i class="fa-brands fa-facebook-messenger"></i>
+        </a>
+        <a href="tel:0332699103" class="float-btn phone" title="Gọi ngay">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Scroll to Top (RIGHT) -->
+    <button class="scroll-top-btn" id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Lên đầu trang">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- ===== JS ===== -->
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
+    <script>
+        /* ── State ── */
+        let allDresses = [], selectedDress = null, currentCat = 'all', currentSize = 'all';
+        let startPicker, endPicker;
+        let currentColor = 'all';
+        let currentPrice = 'all';
+        let currentSearch = '';
+        let currentSort = 'newest';
+        let filteredDresses = [];
+
+        // Banner Slider State & Logic
+        let currentSlideIndex = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.banner-slide');
+            const dots = document.querySelectorAll('.slider-dots .dot');
+            if (!slides.length) return;
+            
+            if (index >= slides.length) currentSlideIndex = 0;
+            else if (index < 0) currentSlideIndex = slides.length - 1;
+            else currentSlideIndex = index;
+            
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentSlideIndex);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlideIndex);
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlideIndex + 1);
+            resetSlideInterval();
+        }
+
+        function prevSlide() {
+            showSlide(currentSlideIndex - 1);
+            resetSlideInterval();
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+            resetSlideInterval();
+        }
+
+        function startSlideInterval() {
+            slideInterval = setInterval(() => {
+                showSlide(currentSlideIndex + 1);
+            }, 5000);
+        }
+
+        function resetSlideInterval() {
+            clearInterval(slideInterval);
+            startSlideInterval();
+        }
+
+        /* ── Grand Opening Popup ── */
+        function closePopup() {
+            const p = document.getElementById('grand-popup');
+            p.classList.remove('show');
+            p.classList.add('hide');
+            setTimeout(() => p.style.display = 'none', 400);
+        }
+        // Close on overlay click
+        document.getElementById('grand-popup').addEventListener('click', function(e) {
+            if (e.target === this) closePopup();
+        });
+        // Show popup after 0.8s
+        setTimeout(() => {
+            document.getElementById('grand-popup').classList.add('show');
+        }, 800);
+
+        /* ── Header scroll effect + Scroll-to-top ── */
+        window.addEventListener('scroll', () => {
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
+            const btn = document.getElementById('scroll-top-btn');
+            if (btn) btn.classList.toggle('visible', window.scrollY > 300);
+        });
+
+
+
+
+
+        /* ── Mobile menu toggle ── */
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const headerNav = document.getElementById('header-nav');
+        if (mobileMenuBtn && headerNav) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                headerNav.classList.toggle('active');
+            });
+            document.addEventListener('click', (e) => {
+                if (headerNav.classList.contains('active') && !headerNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    headerNav.classList.remove('active');
+                }
+            });
+            headerNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    headerNav.classList.remove('active');
+                });
+            });
+        }
+
+        /* ── Init ── */
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Flatpickr for dates
+            startPicker = flatpickr("#start-date", {
+                locale: "vn",
+                enableTime: true,
+                time_24hr: true,
+                minDate: "today",
+                dateFormat: "Y-m-d H:i",
+                altInput: true,
+                altFormat: "d/m/Y H:i",
+                onChange: function(selectedDates, dateStr, instance) {
+                    if (endPicker) {
+                        endPicker.set("minDate", dateStr);
+                    }
+                    calcPrice();
+                }
+            });
+
+            endPicker = flatpickr("#end-date", {
+                locale: "vn",
+                enableTime: true,
+                time_24hr: true,
+                minDate: "today",
+                dateFormat: "Y-m-d H:i",
+                altInput: true,
+                altFormat: "d/m/Y H:i",
+                onChange: function(selectedDates, dateStr, instance) {
+                    calcPrice();
+                }
+            });
+
+            loadDresses();
+            startSlideInterval();
+
+            // Open first FAQ
+            const first = document.querySelector('.faq-card.open .faq-body');
+            if (first) first.style.maxHeight = first.scrollHeight + 'px';
+        });
+
+        /* ── Filters ── */
+        function setCatFilter(val, el) {
+            currentCat = val;
+            document.querySelectorAll('#shop-sidebar .cat-link').forEach(a => a.classList.remove('active'));
+            if (el) el.classList.add('active');
+            else {
+                const targetEl = document.querySelector(`#shop-sidebar .cat-link[data-cat="${val}"]`);
+                if (targetEl) targetEl.classList.add('active');
+            }
+            applyFilters();
+            
+            // Close mobile sidebar on link click
+            if (window.innerWidth <= 768) {
+                closeMobileSidebar();
+            }
+        }
+
+        function setSizeFilter(val, el) {
+            currentSize = val;
+            document.querySelectorAll('#shop-sidebar .size-btn').forEach(btn => btn.classList.remove('active'));
+            if (el) el.classList.add('active');
+            applyFilters();
+        }
+
+        function setColorFilter(val, el) {
+            currentColor = val;
+            document.querySelectorAll('#shop-sidebar .color-swatch-btn').forEach(btn => btn.classList.remove('active'));
+            if (el) el.classList.add('active');
+            applyFilters();
+        }
+
+        function setPriceFilter(val, el) {
+            currentPrice = val;
+            document.querySelectorAll('#shop-sidebar .price-btn').forEach(btn => btn.classList.remove('active'));
+            if (el) el.classList.add('active');
+            applyFilters();
+        }
+
+        function handleSearch() {
+            currentSearch = document.getElementById('search-input').value;
+            applyFilters();
+        }
+
+        function handleSort() {
+            currentSort = document.getElementById('sort-select').value;
+            applyFilters();
+        }
+
+        function clearAllFilters() {
+            currentCat = 'all';
+            currentSize = 'all';
+            currentColor = 'all';
+            currentPrice = 'all';
+            currentSearch = '';
+            document.getElementById('search-input').value = '';
+            
+            // Reset active classes
+            document.querySelectorAll('#shop-sidebar .cat-link').forEach(a => a.classList.toggle('active', a.getAttribute('data-cat') === 'all'));
+            document.querySelectorAll('#shop-sidebar .size-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-size') === 'all'));
+            document.querySelectorAll('#shop-sidebar .color-swatch-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-color') === 'all'));
+            document.querySelectorAll('#shop-sidebar .price-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-price') === 'all'));
+            
+            applyFilters();
+        }
+
+        function toggleMobileSidebar() {
+            const sidebar = document.getElementById('shop-sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            const active = sidebar.classList.toggle('active');
+            overlay.classList.toggle('active', active);
+        }
+
+        function closeMobileSidebar() {
+            document.getElementById('shop-sidebar').classList.remove('active');
+            document.getElementById('sidebar-overlay').classList.remove('active');
+        }
+
+        function filterCat(cat) {
+            const link = document.querySelector(`#shop-sidebar .cat-link[data-cat="${cat}"]`);
+            setCatFilter(cat, link);
+            setTimeout(() => document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' }), 80);
+        }
+
+        /* ── Load & Render ── */
+        async function loadDresses() {
+            const grid = document.getElementById('products-container');
+            grid.innerHTML = `<div class="products-loading"><div class="loading-spinner"></div><p>Đang tải sản phẩm...</p></div>`;
+            try {
+                // Fetch all dresses for client-side filtering
+                const res = await fetch(`/api/demo/dresses?category=all&size=all`);
+                allDresses = await res.json();
+                updateCountBadges();
+                applyFilters();
+                filterColorTab('Trắng');
+            } catch {
+                grid.innerHTML = `<div class="products-loading"><p style="color:#dc2626">Lỗi kết nối. Vui lòng tải lại trang.</p></div>`;
+            }
+        }
+
+        function updateCountBadges() {
+            if (!allDresses.length) return;
+            const counts = {
+                all: allDresses.length,
+                aodai: allDresses.filter(d => d.category === 'Áo Dài').length,
+                set: allDresses.filter(d => d.category === 'Set').length,
+                body: allDresses.filter(d => d.category === 'Váy Body').length,
+                xoe: allDresses.filter(d => d.category === 'Váy Xòe').length
+            };
+            if (document.getElementById('count-all')) document.getElementById('count-all').textContent = counts.all;
+            if (document.getElementById('count-aodai')) document.getElementById('count-aodai').textContent = counts.aodai;
+            if (document.getElementById('count-set')) document.getElementById('count-set').textContent = counts.set;
+            if (document.getElementById('count-body')) document.getElementById('count-body').textContent = counts.body;
+            if (document.getElementById('count-xoe')) document.getElementById('count-xoe').textContent = counts.xoe;
+        }
+
+        function getColorHex(color) {
+            const colors = {
+                'trắng': '#ffffff',
+                'tráng': '#ffffff',
+                'đen': '#0f172a',
+                'đỏ': '#dc2626',
+                'hồng': '#ec4899',
+                'kem': '#fef3c7',
+                'be': '#fef3c7',
+                'nude': '#fed7aa',
+                'vàng': '#eab308',
+                'xanh': '#3b82f6',
+                'tím': '#a855f7'
+            };
+            const c = (color || '').toLowerCase().trim();
+            for (const key in colors) {
+                if (c.includes(key)) return colors[key];
+            }
+            return '#cbd5e1';
+        }
+
+        function applyFilters() {
+            filteredDresses = allDresses.filter(d => {
+                // Category Filter
+                if (currentCat !== 'all' && d.category !== currentCat) return false;
+                
+                // Size Filter
+                if (currentSize !== 'all' && d.size !== currentSize) return false;
+                
+                // Color Filter
+                if (currentColor !== 'all') {
+                    const dressColor = (d.color || '').toLowerCase();
+                    const filterColor = currentColor.toLowerCase();
+                    if (!dressColor.includes(filterColor)) return false;
+                }
+                
+                // Price Filter
+                if (currentPrice !== 'all') {
+                    if (currentPrice === 'under-300' && d.price >= 300000) return false;
+                    if (currentPrice === '300-500' && (d.price < 300000 || d.price > 500000)) return false;
+                    if (currentPrice === 'above-500' && d.price <= 500000) return false;
+                }
+                
+                // Search Query
+                if (currentSearch.trim() !== '') {
+                    const q = currentSearch.toLowerCase();
+                    const nameMatch = (d.name || '').toLowerCase().includes(q);
+                    if (!nameMatch) return false;
+                }
+                
+                return true;
+            });
+
+            // Apply Sorting
+            if (currentSort === 'price-asc') {
+                filteredDresses.sort((a, b) => a.price - b.price);
+            } else if (currentSort === 'price-desc') {
+                filteredDresses.sort((a, b) => b.price - a.price);
+            } else {
+                // newest: sort by ID descending
+                filteredDresses.sort((a, b) => b.id - a.id);
+            }
+
+            // Show/Hide clear button
+            const isFiltering = currentCat !== 'all' || currentSize !== 'all' || currentColor !== 'all' || currentPrice !== 'all' || currentSearch.trim() !== '';
+            document.getElementById('btn-clear-filters').classList.toggle('active', isFiltering);
+
+            renderDresses();
+        }
+
+        function renderDresses() {
+            const grid = document.getElementById('products-container');
+            if (!filteredDresses.length) {
+                grid.innerHTML = `<div class="products-loading"><p>Không tìm thấy sản phẩm phù hợp.</p></div>`;
+                return;
+            }
+            grid.innerHTML = '';
+            filteredDresses.forEach((d, i) => {
+                let src = d.image_url;
+                if (src.startsWith('http')) src = `/api/demo/proxy-image?url=${encodeURIComponent(src)}`;
+
+                let brand = 'Chérie Studio', name = d.name;
+                if (d.name.includes(' - ')) {
+                    [brand, name] = d.name.split(' - ');
+                } else if (d.name.toLowerCase().includes(' by ')) {
+                    const p = d.name.split(/ by /i); name = p[0]; brand = p[1];
+                } else if (d.name.toLowerCase().includes('của nhà ')) {
+                    const p = d.name.split(/của nhà /i);
+                    name = p[0].trim();
+                    brand = p[1].replace(/🎀/g, '').trim();
+                } else if (d.name.toLowerCase().includes('của ')) {
+                    const p = d.name.split(/của /i);
+                    name = p[0].trim();
+                    brand = p[1].replace(/🎀/g, '').trim();
+                }
+                brand = brand.replace(/🎀/g, '').trim();
+                name = name.replace(/🎀/g, '').trim();
+
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.style.animationDelay = `${i * 0.05}s`;
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => openGalleryModal(d.id));
+                card.innerHTML = `
+                    <div class="product-img-wrap">
+                        ${i < 4 ? '<span class="badge-new">Mới</span>' : ''}
+                        ${i >= 2 && i < 6 ? '<span class="badge-hot">Hot</span>' : ''}
+                        <img src="${src}" alt="${d.name}" loading="lazy" class="loading" onload="this.classList.remove('loading');this.classList.add('loaded');" onerror="this.src='/static/images/hero_bridal_gown.png';this.classList.remove('loading');this.classList.add('loaded');">
+                        <span class="product-size-tag">Size ${d.size}</span>
+                    </div>
+                    <div class="product-info">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.35rem;">
+                            <div class="product-brand">${brand}</div>
+                            <div style="display: flex; align-items: center; gap: 0.35rem;">
+                                <span class="swatch-color" style="background-color: ${getColorHex(d.color)}; border: 1px solid rgba(0,0,0,0.1);" title="Màu: ${d.color}"></span>
+                                <span class="category-dot">${d.category}</span>
+                            </div>
+                        </div>
+                        <div class="product-name">${name}</div>
+                        <div class="product-footer">
+                            <div class="price-block">
+                                <span class="price-note">Giá thuê / ngày</span>
+                                <div class="price-amount">${fmt(d.price)}</div>
+                            </div>
+                            <button class="btn-book-now" onclick="event.stopPropagation(); openDrawer(${d.id});">
+                                <i class="fa-solid fa-calendar-plus"></i> <span class="btn-text">Đặt Ngay</span>
+                            </button>
+                        </div>
+                    </div>`;
+                grid.appendChild(card);
+            });
+        }
+
+        /* ── Drawer ── */
+        function openDrawer(id) {
+            selectedDress = allDresses.find(d => d.id === id);
+            if (!selectedDress) return;
+            document.getElementById('drawer-title').textContent = `Đặt lịch: ${selectedDress.name}`;
+            document.getElementById('booking-dress-id').value = id;
+            document.getElementById('sum-price-day').textContent = fmt(selectedDress.price);
+            document.getElementById('sum-deposit').textContent = fmt(selectedDress.deposit);
+            if (startPicker) startPicker.clear();
+            if (endPicker) endPicker.clear();
+            document.getElementById('sum-days').textContent = '0 ngày';
+            document.getElementById('sum-total').textContent = '—';
+            document.getElementById('booking-drawer').classList.add('active');
+            document.getElementById('drawer-overlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDrawer() {
+            document.getElementById('booking-drawer').classList.remove('active');
+            document.getElementById('drawer-overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function calcPrice() {
+            const s = document.getElementById('start-date').value, e = document.getElementById('end-date').value;
+            if (!s || !e || !selectedDress) return;
+            const start = new Date(s), end = new Date(e);
+            if (end < start) { if (endPicker) endPicker.setDate(s); return; }
+            const days = Math.max(1, Math.round((end - start) / 86400000));
+            document.getElementById('sum-days').textContent = `${days} ngày`;
+            document.getElementById('sum-total').textContent = fmt(days * selectedDress.price);
+        }
+        async function submitBooking(e) {
+            e.preventDefault();
+            const s = document.getElementById('start-date').value, en = document.getElementById('end-date').value;
+            const days = Math.max(1, Math.round((new Date(en) - new Date(s)) / 86400000));
+            const payload = {
+                dress_id: parseInt(document.getElementById('booking-dress-id').value),
+                customer_name: document.getElementById('customer-name').value.trim(),
+                customer_phone: document.getElementById('customer-phone').value.trim(),
+                start_date: s, end_date: en,
+                total_price: days * selectedDress.price
+            };
+            try {
+                const res = await fetch('/api/demo/bookings', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                const data = await res.json();
+                showToast(data.message, data.success ? 'success' : 'error');
+                if (data.success) closeDrawer();
+            } catch { showToast('Lỗi kết nối. Vui lòng thử lại.', 'error'); }
+        }
+
+        /* ── Toast ── */
+        function showToast(msg, type = 'info') {
+            const t = document.getElementById('toast'), icon = document.getElementById('toast-icon');
+            document.getElementById('toast-msg').textContent = msg;
+            t.className = `toast ${type}`;
+            icon.className = type === 'success' ? 'fa-solid fa-circle-check' : type === 'error' ? 'fa-solid fa-circle-xmark' : 'fa-solid fa-circle-info';
+            t.style.display = 'flex';
+            setTimeout(() => t.style.display = 'none', 4500);
+        }
+        function focusSearch() {
+            const input = document.getElementById('search-input');
+            if (input) {
+                input.focus();
+                document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        /* ── FAQ ── */
+        function toggleFaq(btn) {
+            const card = btn.closest('.faq-card');
+            const body = card.querySelector('.faq-body');
+            const isOpen = card.classList.contains('open');
+            document.querySelectorAll('.faq-card.open').forEach(c => {
+                c.classList.remove('open');
+                c.querySelector('.faq-body').style.maxHeight = null;
+            });
+            if (!isOpen) { card.classList.add('open'); body.style.maxHeight = body.scrollHeight + 'px'; }
+        }
+
+        function filterColorTab(color, btn) {
+            document.querySelectorAll('.color-tab-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            else {
+                const targetBtn = document.querySelector(`.color-tab-btn[data-col-tab="${color}"]`);
+                if (targetBtn) targetBtn.classList.add('active');
+            }
+
+            const container = document.getElementById('color-section-container');
+            if (!container) return;
+
+            const col = color.toLowerCase();
+            const matching = allDresses.filter(d => (d.color || '').toLowerCase().includes(col));
+
+            if (!matching.length) {
+                container.innerHTML = `<div class="products-loading"><p>Không tìm thấy váy màu này.</p></div>`;
+                return;
+            }
+
+            container.innerHTML = '';
+            matching.forEach((d, i) => {
+                let src = d.image_url;
+                if (src.startsWith('http')) src = `/api/demo/proxy-image?url=${encodeURIComponent(src)}`;
+
+                let brand = 'Chérie Studio', name = d.name;
+                if (d.name.includes(' - ')) {
+                    [brand, name] = d.name.split(' - ');
+                } else if (d.name.toLowerCase().includes(' by ')) {
+                    const p = d.name.split(/ by /i); name = p[0]; brand = p[1];
+                } else if (d.name.toLowerCase().includes('của nhà ')) {
+                    const p = d.name.split(/của nhà /i);
+                    name = p[0].trim();
+                    brand = p[1].replace(/🎀/g, '').trim();
+                } else if (d.name.toLowerCase().includes('của ')) {
+                    const p = d.name.split(/của /i);
+                    name = p[0].trim();
+                    brand = p[1].replace(/🎀/g, '').trim();
+                }
+                brand = brand.replace(/🎀/g, '').trim();
+                name = name.replace(/🎀/g, '').trim();
+
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.style.animationDelay = `${i * 0.05}s`;
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => openGalleryModal(d.id));
+                card.innerHTML = `
+                    <div class="product-img-wrap">
+                        <img src="${src}" alt="${d.name}" loading="lazy">
+                        <span class="product-size-tag">Size ${d.size}</span>
+                    </div>
+                    <div class="product-info">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.35rem;">
+                            <div class="product-brand">${brand}</div>
+                            <div style="display: flex; align-items: center; gap: 0.35rem;">
+                                <span class="swatch-color" style="background-color: ${getColorHex(d.color)}; border: 1px solid rgba(0,0,0,0.1);" title="Màu: ${d.color}"></span>
+                                <span class="category-dot">${d.category}</span>
+                            </div>
+                        </div>
+                        <div class="product-name">${name}</div>
+                        <div class="product-footer">
+                            <div class="price-block">
+                                <span class="price-note">Giá thuê / ngày</span>
+                                <div class="price-amount">${fmt(d.price)}</div>
+                            </div>
+                            <button class="btn-book-now" onclick="event.stopPropagation(); openDrawer(${d.id});">
+                                <i class="fa-solid fa-calendar-plus"></i> <span class="btn-text">Đặt Ngay</span>
+                            </button>
+                        </div>
+                    </div>`;
+                container.appendChild(card);
+            });
+        }
+
+        /* ── Lookup Modal ── */
+        let lookupDebounceTimer;
+        
+        function openLookupModal() {
+            const modal = document.getElementById('lookup-modal');
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.getElementById('lookup-phone-input').focus();
+        }
+        
+        function closeLookupModal() {
+            const modal = document.getElementById('lookup-modal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+        
+        function onLookupPhoneInput() {
+            clearTimeout(lookupDebounceTimer);
+            lookupDebounceTimer = setTimeout(() => {
+                performLookup();
+            }, 300);
+        }
+        
+        async function performLookup() {
+            const phone = document.getElementById('lookup-phone-input').value.trim();
+            const resultsContainer = document.getElementById('lookup-results');
+            
+            if (phone.length < 9) {
+                resultsContainer.innerHTML = '<p style="text-align: center; color: #64748b; font-size: 0.9rem; padding: 2rem 0;">Vui lòng nhập số điện thoại hợp lệ (tối thiểu 9 chữ số).</p>';
+                return;
+            }
+            
+            resultsContainer.innerHTML = '<p style="text-align: center; color: #64748b; font-size: 0.9rem; padding: 2rem 0;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tìm kiếm...</p>';
+            
+            try {
+                const res = await fetch(`/api/demo/my-bookings?phone=${encodeURIComponent(phone)}`);
+                const bookings = await res.json();
+                
+                if (!bookings || bookings.length === 0) {
+                    resultsContainer.innerHTML = '<p style="text-align: center; color: #ef4444; font-size: 0.9rem; padding: 2rem 0;"><i class="fa-solid fa-calendar-xmark"></i> Không tìm thấy lịch hẹn nào cho số điện thoại này.</p>';
+                    return;
+                }
+                
+                resultsContainer.innerHTML = bookings.map(b => {
+                    let statusClass = 'status-other';
+                    if (b.status === 'Chờ duyệt') statusClass = 'status-cho-duyet';
+                    else if (b.status === 'Đang thuê') statusClass = 'status-dang-thue';
+                    else if (b.status === 'Đã trả') statusClass = 'status-da-tra';
+                    
+                    let image_url = b.dress_image;
+                    if (image_url.startsWith('http')) {
+                        image_url = `/api/demo/proxy-image?url=${encodeURIComponent(image_url)}`;
+                    }
+                    
+                    const fmtPrice = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(b.total_price);
+                    
+                    return `
+                        <div class="lookup-item">
+                            <img src="${image_url}" alt="${b.dress_name}" class="lookup-item-img" onerror="this.src='/static/images/hero_bridal_gown.png'">
+                            <div class="lookup-item-info">
+                                <div class="lookup-item-name">${b.dress_name}</div>
+                                <div class="lookup-item-date"><i class="fa-regular fa-calendar"></i> Từ ${b.start_date} đến ${b.end_date}</div>
+                                <div class="lookup-item-price">Tổng: ${fmtPrice}</div>
+                                <span class="lookup-item-status-badge ${statusClass}">${b.status} (${b.payment_status})</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                
+            } catch (err) {
+                console.error(err);
+                resultsContainer.innerHTML = '<p style="text-align: center; color: #ef4444; font-size: 0.9rem; padding: 2rem 0;">Lỗi hệ thống khi tìm kiếm. Vui lòng thử lại sau.</p>';
+            }
+        }
+
+        /* ── Gallery Modal ── */
+        let activeGalleryDressId = null;
+
+        function getDressImages(d) {
+            const mainImg = d.image_url;
+            let category = (d.category || '').toLowerCase();
+            let gallery = [];
+            
+            if (category.includes('cưới') || category.includes('xoè') || category.includes('xòe')) {
+                gallery = [
+                    'https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1546804764-c3702cef4fa0?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?auto=format&fit=crop&q=80&w=600'
+                ];
+            } else if (category.includes('dài')) {
+                gallery = [
+                    'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&q=80&w=600'
+                ];
+            } else {
+                gallery = [
+                    'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=600',
+                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=600'
+                ];
+            }
+            return [mainImg, ...gallery];
+        }
+
+        function openGalleryModal(id) {
+            const dress = allDresses.find(d => d.id === id);
+            if (!dress) return;
+            
+            activeGalleryDressId = id;
+            
+            // Set details
+            document.getElementById('gallery-dress-name').textContent = dress.name;
+            document.getElementById('gallery-dress-category').textContent = dress.category;
+            document.getElementById('gallery-dress-price').textContent = fmt(dress.price);
+            document.getElementById('gallery-dress-deposit').textContent = fmt(dress.deposit);
+            document.getElementById('gallery-dress-size').textContent = dress.size;
+            document.getElementById('gallery-dress-color').textContent = dress.color;
+            
+            const statusEl = document.getElementById('gallery-dress-status');
+            statusEl.textContent = dress.status;
+            statusEl.className = 'status-badge'; // reset
+            if (dress.status === 'Sẵn sàng') {
+                statusEl.style.color = '#16a34a';
+            } else {
+                statusEl.style.color = '#2563eb';
+            }
+            
+            // Set images
+            const images = getDressImages(dress);
+            const mainImgEl = document.getElementById('gallery-main-img');
+            
+            let mainSrc = images[0];
+            if (mainSrc.startsWith('http')) {
+                mainSrc = `/api/demo/proxy-image?url=${encodeURIComponent(mainSrc)}`;
+            }
+            mainImgEl.src = mainSrc;
+            
+            // Inject thumbnails
+            const thumbsContainer = document.getElementById('gallery-thumbs');
+            thumbsContainer.innerHTML = images.map((img, idx) => {
+                let thumbSrc = img;
+                if (thumbSrc.startsWith('http')) {
+                    thumbSrc = `/api/demo/proxy-image?url=${encodeURIComponent(thumbSrc)}`;
+                }
+                return `<img class="gallery-thumb ${idx === 0 ? 'active' : ''}" src="${thumbSrc}" onclick="setGalleryMainImage('${thumbSrc}', this)" onerror="this.src='/static/images/hero_bridal_gown.png'">`;
+            }).join('');
+            
+            // Show modal
+            const modal = document.getElementById('gallery-modal');
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function setGalleryMainImage(src, thumbEl) {
+            document.getElementById('gallery-main-img').src = src;
+            document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+            thumbEl.classList.add('active');
+        }
+
+        function closeGalleryModal() {
+            const modal = document.getElementById('gallery-modal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        function triggerBookingFromGallery() {
+            if (!activeGalleryDressId) return;
+            closeGalleryModal();
+            setTimeout(() => {
+                openDrawer(activeGalleryDressId);
+            }, 350);
+        }
+
+        /* ── Helpers ── */
+        const fmt = n => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(n);
+    </script>
+</body>
+</html>
