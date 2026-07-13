@@ -536,7 +536,8 @@ def api_demo_create_booking():
 @app.route('/api/demo/my-bookings')
 def api_demo_my_bookings():
     phone = request.args.get('phone', '').strip()
-    if not phone:
+    name = request.args.get('name', '').strip()
+    if not phone or not name:
         return jsonify([])
     conn = _get_conn()
     cursor = conn.cursor()
@@ -547,8 +548,17 @@ def api_demo_my_bookings():
         WHERE b.customer_phone = ?
         ORDER BY b.start_date DESC
     ''', (phone,))
-    bookings = [dict(row) for row in cursor.fetchall()]
+    raw_bookings = [dict(row) for row in cursor.fetchall()]
     conn.close()
+    
+    # Filter by name case-insensitively in Python to fully support Vietnamese accents
+    normalized_input_name = ' '.join(name.lower().split())
+    bookings = []
+    for b in raw_bookings:
+        normalized_db_name = ' '.join(b['customer_name'].lower().split())
+        if normalized_db_name == normalized_input_name:
+            bookings.append(b)
+            
     return jsonify(bookings)
 
 

@@ -2196,17 +2196,29 @@
         }
         .lookup-search-box {
             display: flex;
+            flex-direction: column;
             gap: 0.75rem;
             margin-bottom: 1.5rem;
         }
+        .lookup-search-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+        @media (max-width: 576px) {
+            .lookup-search-fields {
+                grid-template-columns: 1fr;
+                gap: 0.6rem;
+            }
+        }
         .lookup-search-box input {
-            flex: 1;
             padding: 0.75rem 1rem;
             border: 1.5px solid #e2e8f0;
             border-radius: 12px;
             font-size: 0.95rem;
             outline: none;
             transition: border-color 0.2s ease;
+            width: 100%;
         }
         .lookup-search-box input:focus {
             border-color: var(--primary);
@@ -2215,7 +2227,7 @@
             background: var(--primary);
             color: #fff;
             border: none;
-            padding: 0.75rem 1.25rem;
+            padding: 0.8rem 1.25rem;
             border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
@@ -2223,6 +2235,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
         }
         .lookup-search-box button:hover {
             background: #1a5fa6;
@@ -3131,11 +3145,14 @@
             <button class="lookup-modal-close" onclick="closeLookupModal()">&times;</button>
             <h3>Tra cứu lịch hẹn</h3>
             <div class="lookup-search-box">
-                <input type="tel" id="lookup-phone-input" placeholder="Nhập số điện thoại đặt lịch..." oninput="onLookupPhoneInput()">
-                <button onclick="performLookup()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div class="lookup-search-fields">
+                    <input type="text" id="lookup-name-input" placeholder="Tên khách hàng..." onkeydown="if(event.key==='Enter') performLookup()">
+                    <input type="tel" id="lookup-phone-input" placeholder="Số điện thoại..." onkeydown="if(event.key==='Enter') performLookup()">
+                </div>
+                <button onclick="performLookup()"><i class="fa-solid fa-magnifying-glass"></i> Tra cứu lịch hẹn</button>
             </div>
             <div class="lookup-results" id="lookup-results">
-                <p style="text-align: center; color: #64748b; font-size: 0.9rem; padding: 2rem 0;">Nhập số điện thoại để tra cứu lịch sử đặt lịch.</p>
+                <p style="text-align: center; color: #64748b; font-size: 0.9rem; padding: 2rem 0;">Vui lòng nhập tên và số điện thoại đã đặt lịch để tra cứu.</p>
             </div>
         </div>
     </div>
@@ -3799,15 +3816,21 @@
         }
 
         /* ── Lookup Modal ── */
-        let lookupDebounceTimer;
-        
         function openLookupModal() {
             const modal = document.getElementById('lookup-modal');
             modal.classList.add('active');
             modal.style.display = 'flex';
             document.body.classList.add('modal-open');
             document.body.style.overflow = 'hidden';
-            document.getElementById('lookup-phone-input').focus();
+            
+            // Clear inputs and focus name
+            document.getElementById('lookup-name-input').value = '';
+            document.getElementById('lookup-phone-input').value = '';
+            document.getElementById('lookup-results').innerHTML = '<p style="text-align: center; color: #64748b; font-size: 0.9rem; padding: 2rem 0;">Vui lòng nhập tên và số điện thoại đã đặt lịch để tra cứu.</p>';
+            
+            setTimeout(() => {
+                document.getElementById('lookup-name-input').focus();
+            }, 100);
         }
         
         function closeLookupModal() {
@@ -3820,30 +3843,28 @@
             document.body.style.overflow = '';
         }
         
-        function onLookupPhoneInput() {
-            clearTimeout(lookupDebounceTimer);
-            lookupDebounceTimer = setTimeout(() => {
-                performLookup();
-            }, 300);
-        }
-        
         async function performLookup() {
+            const name = document.getElementById('lookup-name-input').value.trim();
             const phone = document.getElementById('lookup-phone-input').value.trim();
             const resultsContainer = document.getElementById('lookup-results');
             
+            if (!name) {
+                resultsContainer.innerHTML = '<p style="text-align: center; color: #ef4444; font-size: 0.9rem; padding: 2rem 0;">Vui lòng nhập tên khách hàng.</p>';
+                return;
+            }
             if (phone.length < 9) {
-                resultsContainer.innerHTML = '<p style="text-align: center; color: #64748b; font-size: 0.9rem; padding: 2rem 0;">Vui lòng nhập số điện thoại hợp lệ (tối thiểu 9 chữ số).</p>';
+                resultsContainer.innerHTML = '<p style="text-align: center; color: #ef4444; font-size: 0.9rem; padding: 2rem 0;">Vui lòng nhập số điện thoại hợp lệ (tối thiểu 9 chữ số).</p>';
                 return;
             }
             
             resultsContainer.innerHTML = '<p style="text-align: center; color: #64748b; font-size: 0.9rem; padding: 2rem 0;"><i class="fa-solid fa-spinner fa-spin"></i> Đang tìm kiếm...</p>';
             
             try {
-                const res = await fetch(`/api/demo/my-bookings?phone=${encodeURIComponent(phone)}`);
+                const res = await fetch(`/api/demo/my-bookings?phone=${encodeURIComponent(phone)}&name=${encodeURIComponent(name)}`);
                 const bookings = await res.json();
                 
                 if (!bookings || bookings.length === 0) {
-                    resultsContainer.innerHTML = '<p style="text-align: center; color: #ef4444; font-size: 0.9rem; padding: 2rem 0;"><i class="fa-solid fa-calendar-xmark"></i> Không tìm thấy lịch hẹn nào cho số điện thoại này.</p>';
+                    resultsContainer.innerHTML = '<p style="text-align: center; color: #ef4444; font-size: 0.9rem; padding: 2rem 0;"><i class="fa-solid fa-calendar-xmark"></i> Không tìm thấy lịch hẹn nào khớp với tên và số điện thoại này.</p>';
                     return;
                 }
                 
@@ -3854,14 +3875,14 @@
                     else if (b.status === 'Đang thuê') statusClass = 'status-dang-thue';
                     else if (b.status === 'Đã trả') statusClass = 'status-da-tra';
                     else if (b.status === 'Đã hủy') statusClass = 'status-da-huy';
-
+ 
                     let payClass = 'pay-chua-coc';
                     let payLabel = '⏳ Chưa cọc';
                     if (b.payment_status === 'Đã cọc') { payClass = 'pay-da-coc'; payLabel = '💰 Đã cọc'; }
                     else if (b.payment_status === 'Đã thanh toán hết') { payClass = 'pay-da-tt'; payLabel = '✅ Đã thanh toán'; }
-
+ 
                     let image_url = b.dress_image;
-                    if (image_url.startsWith('http')) {
+                    if (image_url && image_url.startsWith('http')) {
                         image_url = `/api/demo/proxy-image?url=${encodeURIComponent(image_url)}`;
                     }
                     
