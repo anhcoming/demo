@@ -7,7 +7,7 @@
     <meta name="description" content="Chérie Dress – cho thuê váy cưới, váy dạ hội thiết kế cao cấp tại Hà Nội. Đặt lịch trực tuyến nhanh chóng, tiện lợi.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Flatpickr Datepicker CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -29,7 +29,7 @@
             --text-1: #000000;
             --text-2: #333333;
             --text-3: #777777;
-            --font-ui: 'Quicksand', sans-serif;
+            --font-ui: 'Plus Jakarta Sans', sans-serif;
             --font-display: 'Playfair Display', serif;
             --font-script: 'Dancing Script', cursive;
             --radius-sm: 4px;
@@ -2435,7 +2435,7 @@
             .gallery-modal-content {
                 width: 100%;
                 max-width: 100%;
-                border-radius: 20px 20px 0 0;
+                border-radius: 24px 24px 0 0;
                 max-height: 92vh;
                 overflow-y: auto;
                 overflow-x: hidden;
@@ -2450,28 +2450,75 @@
             .gallery-images-section {
                 border-right: none;
                 border-bottom: 1px solid #f1f5f9;
-                padding: 1.25rem;
+                padding: 1rem 1rem 0.5rem 1rem;
+                gap: 0.75rem;
             }
             .gallery-main-wrap {
-                aspect-ratio: 4/3;
+                aspect-ratio: 3/4; /* Tỷ lệ ảnh dọc chuẩn để thấy toàn bộ váy, ảnh to và rõ nét */
+            }
+            .gallery-thumbs {
+                justify-content: center; /* Căn giữa các ảnh nhỏ ở dưới */
+                gap: 0.4rem;
+            }
+            .gallery-thumb {
+                width: 60px;
+                height: 80px;
             }
             .gallery-details-section {
                 padding: 1.25rem !important;
             }
             .gallery-specs-grid {
-                gap: 0.5rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.4rem;
                 margin-bottom: 1.25rem;
             }
             .spec-item {
-                padding: 0.5rem;
-                gap: 0.35rem;
+                flex-direction: column; /* Xếp dọc icon và chữ để chữ không bị tràn, nhảy dòng */
+                align-items: center;
+                text-align: center;
+                padding: 0.6rem 0.2rem;
+                gap: 0.25rem;
+                border-radius: 12px;
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
             }
-            .spec-item i { font-size: 0.9rem; }
-            .spec-item .label { font-size: 0.6rem; }
-            .spec-item strong { font-size: 0.72rem; }
-            #gallery-dress-name { font-size: 1.4rem; margin-bottom: 0.85rem; }
-            .gallery-detail-price-box { padding: 0.9rem; gap: 0.5rem; margin-bottom: 1rem; }
-            .gallery-detail-price-box .price-item .value { font-size: 1.15rem; }
+            .spec-item i {
+                font-size: 1rem;
+                margin-bottom: 0.1rem;
+            }
+            .spec-item div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 0.1rem;
+            }
+            .spec-item .label {
+                font-size: 0.62rem;
+                color: #64748b;
+                display: block;
+                white-space: nowrap;
+                margin-bottom: 0;
+            }
+            .spec-item strong {
+                font-size: 0.75rem;
+                color: #0f172a;
+                white-space: nowrap;
+                font-weight: 700;
+            }
+            #gallery-dress-name {
+                font-size: 1.4rem;
+                margin-bottom: 0.85rem;
+                line-height: 1.3;
+            }
+            .gallery-detail-price-box {
+                padding: 0.9rem;
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+            }
+            .gallery-detail-price-box .price-item .value {
+                font-size: 1.15rem;
+            }
         }
         
         .gallery-images-section {
